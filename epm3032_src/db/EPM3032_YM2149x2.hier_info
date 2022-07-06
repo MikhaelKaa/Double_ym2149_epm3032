@@ -2,16 +2,21 @@
 a1 => ssg.IN0
 a14 => bc1.IN0
 a15 => ssg.IN1
+a0 => always1.IN1
 m1 => bc1.IN1
 iorq => ssg.IN1
+iorq => always1.IN0
 wr => bdir.IN0
+wr => always1.IN1
 clk350 => always0.IN0
 reset => reset.IN1
 d[0] => d[0].IN1
 d[1] => ~NO_FANOUT~
 d[2] => ~NO_FANOUT~
 d[3] => comb.IN1
+d[3] => pre_tapeout.DATAA
 d[4] => comb.IN0
+d[4] => pre_beeper.DATAA
 d[5] => comb.IN1
 d[6] => comb.IN1
 d[7] => comb.IN1
@@ -20,6 +25,8 @@ bdir <= bdir.DB_MAX_OUTPUT_PORT_TYPE
 clk175 <= clk_div_cnt.DB_MAX_OUTPUT_PORT_TYPE
 a8[0] <= ttl_7474:tm2.Q_bar
 a8[1] <= ttl_7474:tm2.Q
+beeper <= pre_beeper.DB_MAX_OUTPUT_PORT_TYPE
+tapeout <= pre_tapeout.DB_MAX_OUTPUT_PORT_TYPE
 
 
 |EPM3032_YM2149x2|ttl_7474:tm2

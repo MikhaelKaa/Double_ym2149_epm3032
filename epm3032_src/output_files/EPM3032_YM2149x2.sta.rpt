@@ -1,5 +1,5 @@
 TimeQuest Timing Analyzer report for EPM3032_YM2149x2
-Wed Jun 29 20:26:31 2022
+Wed Jul 06 23:29:27 2022
 Quartus II 64-Bit Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition
 
 
@@ -20,8 +20,8 @@ Quartus II 64-Bit Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edit
  12. Setup: 'clk350'
  13. Hold: 'a1'
  14. Hold: 'clk350'
- 15. Minimum Pulse Width: 'a1'
- 16. Minimum Pulse Width: 'clk350'
+ 15. Minimum Pulse Width: 'clk350'
+ 16. Minimum Pulse Width: 'a1'
  17. Setup Times
  18. Hold Times
  19. Clock to Output Times
@@ -138,8 +138,8 @@ No paths to report.
 +--------+--------+---------------+
 ; Clock  ; Slack  ; End Point TNS ;
 +--------+--------+---------------+
+; clk350 ; -3.500 ; -21.000       ;
 ; a1     ; -3.500 ; -14.000       ;
-; clk350 ; -3.500 ; -7.000        ;
 +--------+--------+---------------+
 
 
@@ -181,28 +181,6 @@ No paths to report.
 +-------+-------------+-------------+--------------+-------------+--------------+------------+------------+
 
 
-+----------------------------------------------------------------------------------------------------------------------+
-; Minimum Pulse Width: 'a1'                                                                                            ;
-+--------+--------------+----------------+------------------+-------+------------+-------------------------------------+
-; Slack  ; Actual Width ; Required Width ; Type             ; Clock ; Clock Edge ; Target                              ;
-+--------+--------------+----------------+------------------+-------+------------+-------------------------------------+
-; -3.500 ; 0.500        ; 4.000          ; High Pulse Width ; a1    ; Fall       ; ttl_7474:tm2|Preset_bar_previous[0] ;
-; -3.500 ; 0.500        ; 4.000          ; Low Pulse Width  ; a1    ; Fall       ; ttl_7474:tm2|Preset_bar_previous[0] ;
-; -3.500 ; 0.500        ; 4.000          ; High Pulse Width ; a1    ; Fall       ; ttl_7474:tm2|Q_current[0]           ;
-; -3.500 ; 0.500        ; 4.000          ; Low Pulse Width  ; a1    ; Fall       ; ttl_7474:tm2|Q_current[0]           ;
-; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; a1    ; Rise       ; a1|dataout                          ;
-; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; a1    ; Rise       ; a1|dataout                          ;
-; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; a1    ; Rise       ; comb~2bal|[2]                       ;
-; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; a1    ; Rise       ; comb~2bal|[2]                       ;
-; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; a1    ; Fall       ; comb~2bal|dataout                   ;
-; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; a1    ; Fall       ; comb~2bal|dataout                   ;
-; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; a1    ; Fall       ; tm2|Preset_bar_previous[0]|[2]      ;
-; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; a1    ; Fall       ; tm2|Preset_bar_previous[0]|[2]      ;
-; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; a1    ; Fall       ; tm2|Q_current[0]|[3]                ;
-; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; a1    ; Fall       ; tm2|Q_current[0]|[3]                ;
-+--------+--------------+----------------+------------------+-------+------------+-------------------------------------+
-
-
 +---------------------------------------------------------------------------------------------------+
 ; Minimum Pulse Width: 'clk350'                                                                     ;
 +--------+--------------+----------------+------------------+--------+------------+-----------------+
@@ -210,11 +188,41 @@ No paths to report.
 +--------+--------------+----------------+------------------+--------+------------+-----------------+
 ; -3.500 ; 0.500        ; 4.000          ; High Pulse Width ; clk350 ; Fall       ; clk_div_cnt     ;
 ; -3.500 ; 0.500        ; 4.000          ; Low Pulse Width  ; clk350 ; Fall       ; clk_div_cnt     ;
+; -3.500 ; 0.500        ; 4.000          ; High Pulse Width ; clk350 ; Fall       ; pre_beeper      ;
+; -3.500 ; 0.500        ; 4.000          ; Low Pulse Width  ; clk350 ; Fall       ; pre_beeper      ;
+; -3.500 ; 0.500        ; 4.000          ; High Pulse Width ; clk350 ; Fall       ; pre_tapeout     ;
+; -3.500 ; 0.500        ; 4.000          ; Low Pulse Width  ; clk350 ; Fall       ; pre_tapeout     ;
 ; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; clk350 ; Rise       ; clk350|dataout  ;
 ; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; clk350 ; Rise       ; clk350|dataout  ;
-; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; clk350 ; Rise       ; clk_div_cnt|[0] ;
-; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; clk350 ; Rise       ; clk_div_cnt|[0] ;
+; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; clk350 ; Rise       ; clk_div_cnt|clk ;
+; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; clk350 ; Rise       ; clk_div_cnt|clk ;
+; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; clk350 ; Rise       ; pre_beeper|clk  ;
+; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; clk350 ; Rise       ; pre_beeper|clk  ;
+; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; clk350 ; Rise       ; pre_tapeout|clk ;
+; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; clk350 ; Rise       ; pre_tapeout|clk ;
 +--------+--------------+----------------+------------------+--------+------------+-----------------+
+
+
++----------------------------------------------------------------------------------------------------------------------+
+; Minimum Pulse Width: 'a1'                                                                                            ;
++--------+--------------+----------------+------------------+-------+------------+-------------------------------------+
+; Slack  ; Actual Width ; Required Width ; Type             ; Clock ; Clock Edge ; Target                              ;
++--------+--------------+----------------+------------------+-------+------------+-------------------------------------+
+; -3.500 ; 0.500        ; 4.000          ; High Pulse Width ; a1    ; Rise       ; ttl_7474:tm2|Preset_bar_previous[0] ;
+; -3.500 ; 0.500        ; 4.000          ; Low Pulse Width  ; a1    ; Rise       ; ttl_7474:tm2|Preset_bar_previous[0] ;
+; -3.500 ; 0.500        ; 4.000          ; High Pulse Width ; a1    ; Rise       ; ttl_7474:tm2|Q_current[0]           ;
+; -3.500 ; 0.500        ; 4.000          ; Low Pulse Width  ; a1    ; Rise       ; ttl_7474:tm2|Q_current[0]           ;
+; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; a1    ; Rise       ; a1|dataout                          ;
+; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; a1    ; Rise       ; a1|dataout                          ;
+; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; a1    ; Rise       ; comb~2|datain[2]                    ;
+; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; a1    ; Rise       ; comb~2|datain[2]                    ;
+; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; a1    ; Fall       ; comb~2|dataout                      ;
+; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; a1    ; Fall       ; comb~2|dataout                      ;
+; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; a1    ; Fall       ; tm2|Preset_bar_previous[0]|[2]      ;
+; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; a1    ; Fall       ; tm2|Preset_bar_previous[0]|[2]      ;
+; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; a1    ; Fall       ; tm2|Q_current[0]|[3]                ;
+; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; a1    ; Fall       ; tm2|Q_current[0]|[3]                ;
++--------+--------------+----------------+------------------+-------+------------+-------------------------------------+
 
 
 +-------------------------------------------------------------------------+
@@ -222,21 +230,33 @@ No paths to report.
 +-----------+------------+--------+--------+------------+-----------------+
 ; Data Port ; Clock Port ; Rise   ; Fall   ; Clock Edge ; Clock Reference ;
 +-----------+------------+--------+--------+------------+-----------------+
-; d[*]      ; a1         ; -3.100 ; -3.100 ; Fall       ; a1              ;
-;  d[0]     ; a1         ; -3.100 ; -3.100 ; Fall       ; a1              ;
-; reset     ; a1         ; -3.100 ; -3.100 ; Fall       ; a1              ;
+; d[*]      ; a1         ; -0.400 ; -0.400 ; Rise       ; a1              ;
+;  d[0]     ; a1         ; -0.400 ; -0.400 ; Rise       ; a1              ;
+; reset     ; a1         ; -0.400 ; -0.400 ; Rise       ; a1              ;
+; a0        ; clk350     ; 4.300  ; 4.300  ; Fall       ; clk350          ;
+; d[*]      ; clk350     ; 6.400  ; 6.400  ; Fall       ; clk350          ;
+;  d[3]     ; clk350     ; 6.400  ; 6.400  ; Fall       ; clk350          ;
+;  d[4]     ; clk350     ; 6.300  ; 6.300  ; Fall       ; clk350          ;
+; iorq      ; clk350     ; 4.300  ; 4.300  ; Fall       ; clk350          ;
+; wr        ; clk350     ; 4.300  ; 4.300  ; Fall       ; clk350          ;
 +-----------+------------+--------+--------+------------+-----------------+
 
 
-+-----------------------------------------------------------------------+
-; Hold Times                                                            ;
-+-----------+------------+-------+-------+------------+-----------------+
-; Data Port ; Clock Port ; Rise  ; Fall  ; Clock Edge ; Clock Reference ;
-+-----------+------------+-------+-------+------------+-----------------+
-; d[*]      ; a1         ; 7.200 ; 7.200 ; Fall       ; a1              ;
-;  d[0]     ; a1         ; 7.200 ; 7.200 ; Fall       ; a1              ;
-; reset     ; a1         ; 7.200 ; 7.200 ; Fall       ; a1              ;
-+-----------+------------+-------+-------+------------+-----------------+
++-------------------------------------------------------------------------+
+; Hold Times                                                              ;
++-----------+------------+--------+--------+------------+-----------------+
+; Data Port ; Clock Port ; Rise   ; Fall   ; Clock Edge ; Clock Reference ;
++-----------+------------+--------+--------+------------+-----------------+
+; d[*]      ; a1         ; 4.500  ; 4.500  ; Rise       ; a1              ;
+;  d[0]     ; a1         ; 4.500  ; 4.500  ; Rise       ; a1              ;
+; reset     ; a1         ; 4.500  ; 4.500  ; Rise       ; a1              ;
+; a0        ; clk350     ; -0.200 ; -0.200 ; Fall       ; clk350          ;
+; d[*]      ; clk350     ; -2.200 ; -2.200 ; Fall       ; clk350          ;
+;  d[3]     ; clk350     ; -2.300 ; -2.300 ; Fall       ; clk350          ;
+;  d[4]     ; clk350     ; -2.200 ; -2.200 ; Fall       ; clk350          ;
+; iorq      ; clk350     ; -0.200 ; -0.200 ; Fall       ; clk350          ;
+; wr        ; clk350     ; -0.200 ; -0.200 ; Fall       ; clk350          ;
++-----------+------------+--------+--------+------------+-----------------+
 
 
 +-------------------------------------------------------------------------+
@@ -244,14 +264,16 @@ No paths to report.
 +-----------+------------+--------+--------+------------+-----------------+
 ; Data Port ; Clock Port ; Rise   ; Fall   ; Clock Edge ; Clock Reference ;
 +-----------+------------+--------+--------+------------+-----------------+
+; a8[*]     ; a1         ; 20.100 ; 20.100 ; Rise       ; a1              ;
+;  a8[0]    ; a1         ; 20.100 ; 20.100 ; Rise       ; a1              ;
+;  a8[1]    ; a1         ; 13.400 ; 13.400 ; Rise       ; a1              ;
 ; bc1       ; a1         ; 10.000 ; 10.000 ; Rise       ; a1              ;
 ; bdir      ; a1         ; 10.000 ; 10.000 ; Rise       ; a1              ;
-; a8[*]     ; a1         ; 22.800 ; 22.800 ; Fall       ; a1              ;
-;  a8[0]    ; a1         ; 22.800 ; 22.800 ; Fall       ; a1              ;
-;  a8[1]    ; a1         ; 16.100 ; 16.100 ; Fall       ; a1              ;
 ; bc1       ; a1         ; 10.000 ; 10.000 ; Fall       ; a1              ;
 ; bdir      ; a1         ; 10.000 ; 10.000 ; Fall       ; a1              ;
-; clk175    ; clk350     ; 9.400  ; 9.400  ; Fall       ; clk350          ;
+; beeper    ; clk350     ; 6.700  ; 6.700  ; Fall       ; clk350          ;
+; clk175    ; clk350     ; 6.700  ; 6.700  ; Fall       ; clk350          ;
+; tapeout   ; clk350     ; 6.700  ; 6.700  ; Fall       ; clk350          ;
 +-----------+------------+--------+--------+------------+-----------------+
 
 
@@ -260,14 +282,16 @@ No paths to report.
 +-----------+------------+--------+--------+------------+-----------------+
 ; Data Port ; Clock Port ; Rise   ; Fall   ; Clock Edge ; Clock Reference ;
 +-----------+------------+--------+--------+------------+-----------------+
+; a8[*]     ; a1         ; 13.400 ; 13.400 ; Rise       ; a1              ;
+;  a8[0]    ; a1         ; 20.100 ; 20.100 ; Rise       ; a1              ;
+;  a8[1]    ; a1         ; 13.400 ; 13.400 ; Rise       ; a1              ;
 ; bc1       ; a1         ; 10.000 ; 10.000 ; Rise       ; a1              ;
 ; bdir      ; a1         ; 10.000 ; 10.000 ; Rise       ; a1              ;
-; a8[*]     ; a1         ; 16.100 ; 16.100 ; Fall       ; a1              ;
-;  a8[0]    ; a1         ; 22.800 ; 22.800 ; Fall       ; a1              ;
-;  a8[1]    ; a1         ; 16.100 ; 16.100 ; Fall       ; a1              ;
 ; bc1       ; a1         ; 10.000 ; 10.000 ; Fall       ; a1              ;
 ; bdir      ; a1         ; 10.000 ; 10.000 ; Fall       ; a1              ;
-; clk175    ; clk350     ; 9.400  ; 9.400  ; Fall       ; clk350          ;
+; beeper    ; clk350     ; 6.700  ; 6.700  ; Fall       ; clk350          ;
+; clk175    ; clk350     ; 6.700  ; 6.700  ; Fall       ; clk350          ;
+; tapeout   ; clk350     ; 6.700  ; 6.700  ; Fall       ; clk350          ;
 +-----------+------------+--------+--------+------------+-----------------+
 
 
@@ -279,10 +303,10 @@ No paths to report.
 ; a14        ; bc1         ; 10.000 ;        ;        ; 10.000 ;
 ; a15        ; bc1         ; 10.000 ;        ;        ; 10.000 ;
 ; a15        ; bdir        ; 10.000 ;        ;        ; 10.000 ;
-; iorq       ; bc1         ;        ; 10.000 ; 10.000 ;        ;
-; iorq       ; bdir        ;        ; 10.000 ; 10.000 ;        ;
+; iorq       ; bc1         ;        ; 10.100 ; 10.100 ;        ;
+; iorq       ; bdir        ;        ; 10.100 ; 10.100 ;        ;
 ; m1         ; bc1         ; 10.000 ;        ;        ; 10.000 ;
-; wr         ; bdir        ;        ; 10.000 ; 10.000 ;        ;
+; wr         ; bdir        ;        ; 10.100 ; 10.100 ;        ;
 +------------+-------------+--------+--------+--------+--------+
 
 
@@ -294,10 +318,10 @@ No paths to report.
 ; a14        ; bc1         ; 10.000 ;        ;        ; 10.000 ;
 ; a15        ; bc1         ; 10.000 ;        ;        ; 10.000 ;
 ; a15        ; bdir        ; 10.000 ;        ;        ; 10.000 ;
-; iorq       ; bc1         ;        ; 10.000 ; 10.000 ;        ;
-; iorq       ; bdir        ;        ; 10.000 ; 10.000 ;        ;
+; iorq       ; bc1         ;        ; 10.100 ; 10.100 ;        ;
+; iorq       ; bdir        ;        ; 10.100 ; 10.100 ;        ;
 ; m1         ; bc1         ; 10.000 ;        ;        ; 10.000 ;
-; wr         ; bdir        ;        ; 10.000 ; 10.000 ;        ;
+; wr         ; bdir        ;        ; 10.100 ; 10.100 ;        ;
 +------------+-------------+--------+--------+--------+--------+
 
 
@@ -306,7 +330,7 @@ No paths to report.
 +------------+----------+----------+----------+----------+----------+
 ; From Clock ; To Clock ; RR Paths ; FR Paths ; RF Paths ; FF Paths ;
 +------------+----------+----------+----------+----------+----------+
-; a1         ; a1       ; 0        ; 0        ; 0        ; 2        ;
+; a1         ; a1       ; 2        ; 0        ; 0        ; 0        ;
 ; clk350     ; clk350   ; 0        ; 0        ; 0        ; 1        ;
 +------------+----------+----------+----------+----------+----------+
 Entries labeled "false path" only account for clock-to-clock false paths and not path-based false paths. As a result, actual path counts may be lower than reported.
@@ -317,7 +341,7 @@ Entries labeled "false path" only account for clock-to-clock false paths and not
 +------------+----------+----------+----------+----------+----------+
 ; From Clock ; To Clock ; RR Paths ; FR Paths ; RF Paths ; FF Paths ;
 +------------+----------+----------+----------+----------+----------+
-; a1         ; a1       ; 0        ; 0        ; 0        ; 2        ;
+; a1         ; a1       ; 2        ; 0        ; 0        ; 0        ;
 ; clk350     ; clk350   ; 0        ; 0        ; 0        ; 1        ;
 +------------+----------+----------+----------+----------+----------+
 Entries labeled "false path" only account for clock-to-clock false paths and not path-based false paths. As a result, actual path counts may be lower than reported.
@@ -342,10 +366,10 @@ No dedicated SERDES Receiver circuitry present in device or used in design
 +---------------------------------+-------+------+
 ; Illegal Clocks                  ; 0     ; 0    ;
 ; Unconstrained Clocks            ; 0     ; 0    ;
-; Unconstrained Input Ports       ; 8     ; 8    ;
-; Unconstrained Input Port Paths  ; 12    ; 12   ;
-; Unconstrained Output Ports      ; 5     ; 5    ;
-; Unconstrained Output Port Paths ; 12    ; 12   ;
+; Unconstrained Input Ports       ; 11    ; 11   ;
+; Unconstrained Input Port Paths  ; 20    ; 20   ;
+; Unconstrained Output Ports      ; 7     ; 7    ;
+; Unconstrained Output Port Paths ; 14    ; 14   ;
 +---------------------------------+-------+------+
 
 
@@ -355,7 +379,7 @@ No dedicated SERDES Receiver circuitry present in device or used in design
 Info: *******************************************************************
 Info: Running Quartus II 64-Bit TimeQuest Timing Analyzer
     Info: Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition
-    Info: Processing started: Wed Jun 29 20:26:30 2022
+    Info: Processing started: Wed Jul 06 23:29:26 2022
 Info: Command: quartus_sta EPM3032_YM2149x2 -c EPM3032_YM2149x2
 Info: qsta_default_script.tcl version: #1
 Warning (20028): Parallel compilation is not licensed and has been disabled
@@ -384,14 +408,14 @@ Info (332140): No Removal paths to report
 Info (332146): Worst-case minimum pulse width slack is -3.500
     Info (332119):     Slack End Point TNS Clock 
     Info (332119): ========= ============= =====================
+    Info (332119):    -3.500       -21.000 clk350 
     Info (332119):    -3.500       -14.000 a1 
-    Info (332119):    -3.500        -7.000 clk350 
 Info (332001): The selected device family is not supported by the report_metastability command.
 Info (332102): Design is not fully constrained for setup requirements
 Info (332102): Design is not fully constrained for hold requirements
 Info: Quartus II 64-Bit TimeQuest Timing Analyzer was successful. 0 errors, 4 warnings
     Info: Peak virtual memory: 4503 megabytes
-    Info: Processing ended: Wed Jun 29 20:26:31 2022
+    Info: Processing ended: Wed Jul 06 23:29:27 2022
     Info: Elapsed time: 00:00:01
     Info: Total CPU time (on all processors): 00:00:01
 

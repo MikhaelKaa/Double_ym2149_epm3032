@@ -1,5 +1,6 @@
 module EPM3032_YM2149x2 (
 input a1, input a14, input a15,
+input a0,
 input m1, 
 input iorq, 
 input wr, 
@@ -10,7 +11,9 @@ input [7:0]d,
 output bc1, 
 output bdir, 
 output clk175, 
-output [1:0]a8
+output [1:0]a8,
+output beeper,
+output tapeout
 );
 
 // Дешифрация звукового генератора.
@@ -37,6 +40,16 @@ always @(negedge clk350) begin
 end	
 reg clk_div_cnt 	= 1'd0;
 assign clk175 = clk_div_cnt;
+
+// Дешифрация бипера. Работает аналогично пентагоновской схеме.
+reg pre_beeper;
+reg pre_tapeout;
+always @(negedge clk350) begin
+	if( ~(iorq | wr | a0) ) pre_beeper = d[4];
+	if( ~(iorq | wr | a0) ) pre_tapeout = d[3];
+end
+assign beeper = pre_beeper;
+assign tapeout = pre_tapeout;
 
 endmodule
 

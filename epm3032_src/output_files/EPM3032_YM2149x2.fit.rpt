@@ -1,5 +1,5 @@
 Fitter report for EPM3032_YM2149x2
-Wed Jun 29 20:26:26 2022
+Wed Jul 06 23:29:24 2022
 Quartus II 64-Bit Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition
 
 
@@ -15,15 +15,19 @@ Quartus II 64-Bit Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edit
   7. Input Pins
   8. Output Pins
   9. All Package Pins
- 10. Output Pin Default Load For Reported TCO
- 11. Fitter Resource Utilization by Entity
- 12. Control Signals
- 13. Non-Global High Fan-Out Signals
- 14. Other Routing Usage Summary
- 15. LAB Macrocells
- 16. Logic Cell Interconnection
- 17. Fitter Device Options
- 18. Fitter Messages
+ 10. I/O Standard
+ 11. Dedicated Inputs I/O
+ 12. Output Pin Default Load For Reported TCO
+ 13. Fitter Resource Utilization by Entity
+ 14. Control Signals
+ 15. Global & Other Fast Signals
+ 16. Non-Global High Fan-Out Signals
+ 17. Other Routing Usage Summary
+ 18. LAB Macrocells
+ 19. Shareable Expander
+ 20. Logic Cell Interconnection
+ 21. Fitter Device Options
+ 22. Fitter Messages
 
 
 
@@ -49,15 +53,15 @@ applicable agreement for further details.
 +-----------------------------------------------------------------------------+
 ; Fitter Summary                                                              ;
 +---------------------------+-------------------------------------------------+
-; Fitter Status             ; Successful - Wed Jun 29 20:26:26 2022           ;
+; Fitter Status             ; Successful - Wed Jul 06 23:29:24 2022           ;
 ; Quartus II 64-Bit Version ; 13.0.1 Build 232 06/12/2013 SP 1 SJ Web Edition ;
 ; Revision Name             ; EPM3032_YM2149x2                                ;
 ; Top-level Entity Name     ; EPM3032_YM2149x2                                ;
 ; Family                    ; MAX3000A                                        ;
 ; Device                    ; EPM3032ALC44-10                                 ;
 ; Timing Models             ; Final                                           ;
-; Total macrocells          ; 7 / 32 ( 22 % )                                 ;
-; Total pins                ; 25 / 34 ( 74 % )                                ;
+; Total macrocells          ; 8 / 32 ( 25 % )                                 ;
+; Total pins                ; 28 / 34 ( 82 % )                                ;
 +---------------------------+-------------------------------------------------+
 
 
@@ -95,7 +99,7 @@ Parallel compilation was disabled, but you have multiple processors available. E
 +--------------+
 ; Pin-Out File ;
 +--------------+
-The pin-out file can be found in C:/Users/union/Documents/Projects/Speccy/other/EPM3032_YM2149x2/3032/output_files/EPM3032_YM2149x2.pin.
+The pin-out file can be found in C:/Users/union/Documents/Projects/Speccy/double_ay_epm3032/epm3032_src/output_files/EPM3032_YM2149x2.pin.
 
 
 +-------------------------------------------------+
@@ -103,21 +107,21 @@ The pin-out file can be found in C:/Users/union/Documents/Projects/Speccy/other/
 +------------------------------+------------------+
 ; Resource                     ; Usage            ;
 +------------------------------+------------------+
-; Logic cells                  ; 7 / 32 ( 22 % )  ;
-; Registers                    ; 3 / 32 ( 9 % )   ;
-; Number of pterms used        ; 11               ;
-; I/O pins                     ; 25 / 34 ( 74 % ) ;
-;     -- Clock pins            ; 0 / 2 ( 0 % )    ;
+; Logic cells                  ; 8 / 32 ( 25 % )  ;
+; Registers                    ; 5 / 32 ( 16 % )  ;
+; Number of pterms used        ; 14               ;
+; I/O pins                     ; 28 / 34 ( 82 % ) ;
+;     -- Clock pins            ; 1 / 2 ( 50 % )   ;
 ;     -- Dedicated input pins  ; 0 / 2 ( 0 % )    ;
 ;                              ;                  ;
-; Global signals               ; 0                ;
-; Shareable expanders          ; 0 / 32 ( 0 % )   ;
+; Global signals               ; 1                ;
+; Shareable expanders          ; 1 / 32 ( 3 % )   ;
 ; Parallel expanders           ; 0 / 30 ( 0 % )   ;
-; Cells using turbo bit        ; 7 / 32 ( 22 % )  ;
-; Maximum fan-out              ; 3                ;
-; Highest non-global fan-out   ; 3                ;
-; Total fan-out                ; 34               ;
-; Average fan-out              ; 1.06             ;
+; Cells using turbo bit        ; 8 / 32 ( 25 % )  ;
+; Maximum fan-out              ; 5                ;
+; Highest non-global fan-out   ; 5                ;
+; Total fan-out                ; 46               ;
+; Average fan-out              ; 1.24             ;
 +------------------------------+------------------+
 
 
@@ -126,36 +130,39 @@ The pin-out file can be found in C:/Users/union/Documents/Projects/Speccy/other/
 +--------+-------+----------+-----+-----------------------+--------------------+--------+--------------+----------------------+
 ; Name   ; Pin # ; I/O Bank ; LAB ; Combinational Fan-Out ; Registered Fan-Out ; Global ; I/O Standard ; Location assigned by ;
 +--------+-------+----------+-----+-----------------------+--------------------+--------+--------------+----------------------+
-; a1     ; 4     ; --       ; 1   ; 3                     ; 0                  ; no     ; 3.3-V LVTTL  ; User                 ;
-; a14    ; 8     ; --       ; 1   ; 2                     ; 0                  ; no     ; 3.3-V LVTTL  ; User                 ;
-; a15    ; 9     ; --       ; 1   ; 3                     ; 0                  ; no     ; 3.3-V LVTTL  ; User                 ;
-; clk350 ; 16    ; --       ; 1   ; 1                     ; 0                  ; no     ; 3.3-V LVTTL  ; User                 ;
-; d[0]   ; 27    ; --       ; 2   ; 1                     ; 0                  ; no     ; 3.3-V LVTTL  ; User                 ;
-; d[1]   ; 26    ; --       ; 2   ; 0                     ; 0                  ; no     ; 3.3-V LVTTL  ; User                 ;
-; d[2]   ; 25    ; --       ; 2   ; 0                     ; 0                  ; no     ; 3.3-V LVTTL  ; User                 ;
-; d[3]   ; 24    ; --       ; 2   ; 1                     ; 0                  ; no     ; 3.3-V LVTTL  ; User                 ;
-; d[4]   ; 21    ; --       ; 1   ; 1                     ; 0                  ; no     ; 3.3-V LVTTL  ; User                 ;
-; d[5]   ; 20    ; --       ; 1   ; 1                     ; 0                  ; no     ; 3.3-V LVTTL  ; User                 ;
-; d[6]   ; 19    ; --       ; 1   ; 1                     ; 0                  ; no     ; 3.3-V LVTTL  ; User                 ;
-; d[7]   ; 18    ; --       ; 1   ; 1                     ; 0                  ; no     ; 3.3-V LVTTL  ; User                 ;
-; iorq   ; 28    ; --       ; 2   ; 3                     ; 0                  ; no     ; 3.3-V LVTTL  ; User                 ;
-; m1     ; 29    ; --       ; 2   ; 2                     ; 0                  ; no     ; 3.3-V LVTTL  ; User                 ;
-; reset  ; 31    ; --       ; 2   ; 2                     ; 0                  ; no     ; 3.3-V LVTTL  ; User                 ;
-; wr     ; 33    ; --       ; 2   ; 2                     ; 0                  ; no     ; 3.3-V LVTTL  ; User                 ;
+; a0     ; 11    ; --       ; 1   ; 2                     ; 0                  ; no     ; 3.3-V LVTTL  ; User                 ;
+; a1     ; 9     ; --       ; 1   ; 3                     ; 0                  ; no     ; 3.3-V LVTTL  ; User                 ;
+; a14    ; 29    ; --       ; 2   ; 2                     ; 0                  ; no     ; 3.3-V LVTTL  ; User                 ;
+; a15    ; 31    ; --       ; 2   ; 3                     ; 0                  ; no     ; 3.3-V LVTTL  ; User                 ;
+; clk350 ; 43    ; --       ; --  ; 3                     ; 0                  ; yes    ; 3.3-V LVTTL  ; User                 ;
+; d[0]   ; 34    ; --       ; 2   ; 1                     ; 0                  ; no     ; 3.3-V LVTTL  ; User                 ;
+; d[1]   ; 28    ; --       ; 2   ; 0                     ; 0                  ; no     ; 3.3-V LVTTL  ; User                 ;
+; d[2]   ; 37    ; --       ; 2   ; 0                     ; 0                  ; no     ; 3.3-V LVTTL  ; User                 ;
+; d[3]   ; 41    ; --       ; 2   ; 2                     ; 0                  ; no     ; 3.3-V LVTTL  ; User                 ;
+; d[4]   ; 5     ; --       ; 1   ; 2                     ; 0                  ; no     ; 3.3-V LVTTL  ; User                 ;
+; d[5]   ; 40    ; --       ; 2   ; 1                     ; 0                  ; no     ; 3.3-V LVTTL  ; User                 ;
+; d[6]   ; 39    ; --       ; 2   ; 1                     ; 0                  ; no     ; 3.3-V LVTTL  ; User                 ;
+; d[7]   ; 33    ; --       ; 2   ; 1                     ; 0                  ; no     ; 3.3-V LVTTL  ; User                 ;
+; iorq   ; 6     ; --       ; 1   ; 5                     ; 0                  ; no     ; 3.3-V LVTTL  ; User                 ;
+; m1     ; 8     ; --       ; 1   ; 2                     ; 0                  ; no     ; 3.3-V LVTTL  ; User                 ;
+; reset  ; 25    ; --       ; 2   ; 2                     ; 0                  ; no     ; 3.3-V LVTTL  ; Fitter               ;
+; wr     ; 12    ; --       ; 1   ; 4                     ; 0                  ; no     ; 3.3-V LVTTL  ; User                 ;
 +--------+-------+----------+-----+-----------------------+--------------------+--------+--------------+----------------------+
 
 
-+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Output Pins                                                                                                                                                                                ;
-+--------+-------+----------+-----+-----------------+----------------+------------+---------------+--------------+----------------------+-------+----------------------+---------------------+
-; Name   ; Pin # ; I/O Bank ; LAB ; Output Register ; Slow Slew Rate ; Open Drain ; TRI Primitive ; I/O Standard ; Location assigned by ; Load  ; Output Enable Source ; Output Enable Group ;
-+--------+-------+----------+-----+-----------------+----------------+------------+---------------+--------------+----------------------+-------+----------------------+---------------------+
-; a8[0]  ; 6     ; --       ; 1   ; no              ; no             ; no         ; no            ; 3.3-V LVTTL  ; User                 ; 10 pF ; -                    ; -                   ;
-; a8[1]  ; 5     ; --       ; 1   ; no              ; no             ; no         ; no            ; 3.3-V LVTTL  ; User                 ; 10 pF ; -                    ; -                   ;
-; bc1    ; 11    ; --       ; 1   ; no              ; no             ; no         ; no            ; 3.3-V LVTTL  ; User                 ; 10 pF ; -                    ; -                   ;
-; bdir   ; 12    ; --       ; 1   ; no              ; no             ; no         ; no            ; 3.3-V LVTTL  ; User                 ; 10 pF ; -                    ; -                   ;
-; clk175 ; 14    ; --       ; 1   ; no              ; no             ; no         ; no            ; 3.3-V LVTTL  ; User                 ; 10 pF ; -                    ; -                   ;
-+--------+-------+----------+-----+-----------------+----------------+------------+---------------+--------------+----------------------+-------+----------------------+---------------------+
++---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Output Pins                                                                                                                                                                                 ;
++---------+-------+----------+-----+-----------------+----------------+------------+---------------+--------------+----------------------+-------+----------------------+---------------------+
+; Name    ; Pin # ; I/O Bank ; LAB ; Output Register ; Slow Slew Rate ; Open Drain ; TRI Primitive ; I/O Standard ; Location assigned by ; Load  ; Output Enable Source ; Output Enable Group ;
++---------+-------+----------+-----+-----------------+----------------+------------+---------------+--------------+----------------------+-------+----------------------+---------------------+
+; a8[0]   ; 19    ; --       ; 1   ; no              ; no             ; no         ; no            ; 3.3-V LVTTL  ; User                 ; 10 pF ; -                    ; -                   ;
+; a8[1]   ; 20    ; --       ; 1   ; no              ; no             ; no         ; no            ; 3.3-V LVTTL  ; User                 ; 10 pF ; -                    ; -                   ;
+; bc1     ; 16    ; --       ; 1   ; no              ; no             ; no         ; no            ; 3.3-V LVTTL  ; User                 ; 10 pF ; -                    ; -                   ;
+; bdir    ; 14    ; --       ; 1   ; no              ; no             ; no         ; no            ; 3.3-V LVTTL  ; User                 ; 10 pF ; -                    ; -                   ;
+; beeper  ; 21    ; --       ; 1   ; no              ; no             ; no         ; no            ; 3.3-V LVTTL  ; User                 ; 10 pF ; -                    ; -                   ;
+; clk175  ; 18    ; --       ; 1   ; no              ; no             ; no         ; no            ; 3.3-V LVTTL  ; User                 ; 10 pF ; -                    ; -                   ;
+; tapeout ; 24    ; --       ; 2   ; no              ; no             ; no         ; no            ; 3.3-V LVTTL  ; User                 ; 10 pF ; -                    ; -                   ;
++---------+-------+----------+-----+-----------------+----------------+------------+---------------+--------------+----------------------+-------+----------------------+---------------------+
 
 
 +-------------------------------------------------------------------------------------------------------+
@@ -166,49 +173,67 @@ The pin-out file can be found in C:/Users/union/Documents/Projects/Speccy/other/
 ; 1        ; 0          ; --       ; GND+           ;        ;              ;         ;                 ;
 ; 2        ; 1          ; --       ; GND+           ;        ;              ;         ;                 ;
 ; 3        ; 2          ; --       ; VCCINT         ; power  ;              ; 3.3V    ;                 ;
-; 4        ; 3          ; --       ; a1             ; input  ; 3.3-V LVTTL  ;         ; Y               ;
-; 5        ; 4          ; --       ; a8[1]          ; output ; 3.3-V LVTTL  ;         ; Y               ;
-; 6        ; 5          ; --       ; a8[0]          ; output ; 3.3-V LVTTL  ;         ; Y               ;
+; 4        ; 3          ; --       ; RESERVED       ;        ;              ;         ;                 ;
+; 5        ; 4          ; --       ; d[4]           ; input  ; 3.3-V LVTTL  ;         ; Y               ;
+; 6        ; 5          ; --       ; iorq           ; input  ; 3.3-V LVTTL  ;         ; Y               ;
 ; 7        ; 6          ; --       ; TDI            ; input  ; 3.3-V LVTTL  ;         ; N               ;
-; 8        ; 7          ; --       ; a14            ; input  ; 3.3-V LVTTL  ;         ; Y               ;
-; 9        ; 8          ; --       ; a15            ; input  ; 3.3-V LVTTL  ;         ; Y               ;
+; 8        ; 7          ; --       ; m1             ; input  ; 3.3-V LVTTL  ;         ; Y               ;
+; 9        ; 8          ; --       ; a1             ; input  ; 3.3-V LVTTL  ;         ; Y               ;
 ; 10       ; 9          ; --       ; GND            ; gnd    ;              ;         ;                 ;
-; 11       ; 10         ; --       ; bc1            ; output ; 3.3-V LVTTL  ;         ; Y               ;
-; 12       ; 11         ; --       ; bdir           ; output ; 3.3-V LVTTL  ;         ; Y               ;
+; 11       ; 10         ; --       ; a0             ; input  ; 3.3-V LVTTL  ;         ; Y               ;
+; 12       ; 11         ; --       ; wr             ; input  ; 3.3-V LVTTL  ;         ; Y               ;
 ; 13       ; 12         ; --       ; TMS            ; input  ; 3.3-V LVTTL  ;         ; N               ;
-; 14       ; 13         ; --       ; clk175         ; output ; 3.3-V LVTTL  ;         ; Y               ;
+; 14       ; 13         ; --       ; bdir           ; output ; 3.3-V LVTTL  ;         ; Y               ;
 ; 15       ; 14         ; --       ; VCCIO          ; power  ;              ; 3.3V    ;                 ;
-; 16       ; 15         ; --       ; clk350         ; input  ; 3.3-V LVTTL  ;         ; Y               ;
+; 16       ; 15         ; --       ; bc1            ; output ; 3.3-V LVTTL  ;         ; Y               ;
 ; 17       ; 16         ; --       ; GND            ; gnd    ;              ;         ;                 ;
-; 18       ; 17         ; --       ; d[7]           ; input  ; 3.3-V LVTTL  ;         ; Y               ;
-; 19       ; 18         ; --       ; d[6]           ; input  ; 3.3-V LVTTL  ;         ; Y               ;
-; 20       ; 19         ; --       ; d[5]           ; input  ; 3.3-V LVTTL  ;         ; Y               ;
-; 21       ; 20         ; --       ; d[4]           ; input  ; 3.3-V LVTTL  ;         ; Y               ;
+; 18       ; 17         ; --       ; clk175         ; output ; 3.3-V LVTTL  ;         ; Y               ;
+; 19       ; 18         ; --       ; a8[0]          ; output ; 3.3-V LVTTL  ;         ; Y               ;
+; 20       ; 19         ; --       ; a8[1]          ; output ; 3.3-V LVTTL  ;         ; Y               ;
+; 21       ; 20         ; --       ; beeper         ; output ; 3.3-V LVTTL  ;         ; Y               ;
 ; 22       ; 21         ; --       ; GND            ; gnd    ;              ;         ;                 ;
 ; 23       ; 22         ; --       ; VCCINT         ; power  ;              ; 3.3V    ;                 ;
-; 24       ; 23         ; --       ; d[3]           ; input  ; 3.3-V LVTTL  ;         ; Y               ;
-; 25       ; 24         ; --       ; d[2]           ; input  ; 3.3-V LVTTL  ;         ; Y               ;
-; 26       ; 25         ; --       ; d[1]           ; input  ; 3.3-V LVTTL  ;         ; Y               ;
-; 27       ; 26         ; --       ; d[0]           ; input  ; 3.3-V LVTTL  ;         ; Y               ;
-; 28       ; 27         ; --       ; iorq           ; input  ; 3.3-V LVTTL  ;         ; Y               ;
-; 29       ; 28         ; --       ; m1             ; input  ; 3.3-V LVTTL  ;         ; Y               ;
+; 24       ; 23         ; --       ; tapeout        ; output ; 3.3-V LVTTL  ;         ; Y               ;
+; 25       ; 24         ; --       ; reset          ; input  ; 3.3-V LVTTL  ;         ; N               ;
+; 26       ; 25         ; --       ; RESERVED       ;        ;              ;         ;                 ;
+; 27       ; 26         ; --       ; RESERVED       ;        ;              ;         ;                 ;
+; 28       ; 27         ; --       ; d[1]           ; input  ; 3.3-V LVTTL  ;         ; Y               ;
+; 29       ; 28         ; --       ; a14            ; input  ; 3.3-V LVTTL  ;         ; Y               ;
 ; 30       ; 29         ; --       ; GND            ; gnd    ;              ;         ;                 ;
-; 31       ; 30         ; --       ; reset          ; input  ; 3.3-V LVTTL  ;         ; Y               ;
+; 31       ; 30         ; --       ; a15            ; input  ; 3.3-V LVTTL  ;         ; Y               ;
 ; 32       ; 31         ; --       ; TCK            ; input  ; 3.3-V LVTTL  ;         ; N               ;
-; 33       ; 32         ; --       ; wr             ; input  ; 3.3-V LVTTL  ;         ; Y               ;
-; 34       ; 33         ; --       ; RESERVED       ;        ;              ;         ;                 ;
+; 33       ; 32         ; --       ; d[7]           ; input  ; 3.3-V LVTTL  ;         ; Y               ;
+; 34       ; 33         ; --       ; d[0]           ; input  ; 3.3-V LVTTL  ;         ; Y               ;
 ; 35       ; 34         ; --       ; VCCIO          ; power  ;              ; 3.3V    ;                 ;
 ; 36       ; 35         ; --       ; GND            ; gnd    ;              ;         ;                 ;
-; 37       ; 36         ; --       ; RESERVED       ;        ;              ;         ;                 ;
+; 37       ; 36         ; --       ; d[2]           ; input  ; 3.3-V LVTTL  ;         ; Y               ;
 ; 38       ; 37         ; --       ; TDO            ; output ; 3.3-V LVTTL  ;         ; N               ;
-; 39       ; 38         ; --       ; RESERVED       ;        ;              ;         ;                 ;
-; 40       ; 39         ; --       ; RESERVED       ;        ;              ;         ;                 ;
-; 41       ; 40         ; --       ; RESERVED       ;        ;              ;         ;                 ;
+; 39       ; 38         ; --       ; d[6]           ; input  ; 3.3-V LVTTL  ;         ; Y               ;
+; 40       ; 39         ; --       ; d[5]           ; input  ; 3.3-V LVTTL  ;         ; Y               ;
+; 41       ; 40         ; --       ; d[3]           ; input  ; 3.3-V LVTTL  ;         ; Y               ;
 ; 42       ; 41         ; --       ; GND            ; gnd    ;              ;         ;                 ;
-; 43       ; 42         ; --       ; GND+           ;        ;              ;         ;                 ;
+; 43       ; 42         ; --       ; clk350         ; input  ; 3.3-V LVTTL  ;         ; Y               ;
 ; 44       ; 43         ; --       ; GND+           ;        ;              ;         ;                 ;
 +----------+------------+----------+----------------+--------+--------------+---------+-----------------+
 Note: Pin directions (input, output or bidir) are based on device operating in user mode.
+
+
++--------------------------------------------------------------------------------------------------+
+; I/O Standard                                                                                     ;
++--------------+------------+----------------------+-------------------+-------------------+-------+
+; I/O Standard ; Input Vref ; Dedicated Input Pins ; Pins in I/O Bank1 ; Pins in I/O Bank2 ; Total ;
++--------------+------------+----------------------+-------------------+-------------------+-------+
+; 3.3-V LVTTL  ; -          ; 1                    ; 0                 ; 0                 ; 1     ;
++--------------+------------+----------------------+-------------------+-------------------+-------+
+
+
++----------------------------------------------------------------------+
+; Dedicated Inputs I/O                                                 ;
++--------+-------+-------+-------+--------------+------------+---------+
+; Name   ; Pin # ; Type  ; VCCIO ; I/O Standard ; Input Vref ; Current ;
++--------+-------+-------+-------+--------------+------------+---------+
+; clk350 ; 43    ; Input ; --    ; 3.3-V LVTTL  ; -          ; 0 mA    ;
++--------+-------+-------+-------+--------------+------------+---------+
 
 
 +-----------------------------------------------+
@@ -229,19 +254,31 @@ Note: User assignments will override these defaults. The user specified values a
 +----------------------------+------------+------+--------------------------------+--------------+
 ; Compilation Hierarchy Node ; Macrocells ; Pins ; Full Hierarchy Name            ; Library Name ;
 +----------------------------+------------+------+--------------------------------+--------------+
-; |EPM3032_YM2149x2          ; 7          ; 25   ; |EPM3032_YM2149x2              ; work         ;
+; |EPM3032_YM2149x2          ; 8          ; 28   ; |EPM3032_YM2149x2              ; work         ;
 ;    |ttl_7474:tm2|          ; 3          ; 0    ; |EPM3032_YM2149x2|ttl_7474:tm2 ; work         ;
 +----------------------------+------------+------+--------------------------------+--------------+
 
 
-+-------------------------------------------------------------------------------------------+
-; Control Signals                                                                           ;
-+-----------+----------+---------+-------+--------+----------------------+------------------+
-; Name      ; Location ; Fan-Out ; Usage ; Global ; Global Resource Used ; Global Line Name ;
-+-----------+----------+---------+-------+--------+----------------------+------------------+
-; clk350    ; PIN_16   ; 1       ; Clock ; no     ; --                   ; --               ;
-; comb~2bal ; LC6      ; 2       ; Clock ; no     ; --                   ; --               ;
-+-----------+----------+---------+-------+--------+----------------------+------------------+
++-----------------------------------------------------------------------------------------------+
+; Control Signals                                                                               ;
++--------+----------+---------+--------------+--------+----------------------+------------------+
+; Name   ; Location ; Fan-Out ; Usage        ; Global ; Global Resource Used ; Global Line Name ;
++--------+----------+---------+--------------+--------+----------------------+------------------+
+; a0     ; PIN_11   ; 2       ; Clock enable ; no     ; --                   ; --               ;
+; clk350 ; PIN_43   ; 3       ; Clock        ; yes    ; On                   ; --               ;
+; comb~2 ; SEXP2    ; 2       ; Clock        ; no     ; --                   ; --               ;
+; iorq   ; PIN_6    ; 5       ; Clock enable ; no     ; --                   ; --               ;
+; wr     ; PIN_12   ; 4       ; Clock enable ; no     ; --                   ; --               ;
++--------+----------+---------+--------------+--------+----------------------+------------------+
+
+
++-----------------------------------------------------------------------+
+; Global & Other Fast Signals                                           ;
++--------+----------+---------+----------------------+------------------+
+; Name   ; Location ; Fan-Out ; Global Resource Used ; Global Line Name ;
++--------+----------+---------+----------------------+------------------+
+; clk350 ; PIN_43   ; 3       ; On                   ; --               ;
++--------+----------+---------+----------------------+------------------+
 
 
 +-----------------------------------------------+
@@ -249,27 +286,29 @@ Note: User assignments will override these defaults. The user specified values a
 +-------------------------------------+---------+
 ; Name                                ; Fan-Out ;
 +-------------------------------------+---------+
-; iorq                                ; 3       ;
+; iorq                                ; 5       ;
+; wr                                  ; 4       ;
 ; a15                                 ; 3       ;
 ; a1                                  ; 3       ;
+; d[4]                                ; 2       ;
+; d[3]                                ; 2       ;
 ; reset                               ; 2       ;
-; wr                                  ; 2       ;
 ; m1                                  ; 2       ;
+; a0                                  ; 2       ;
 ; a14                                 ; 2       ;
-; comb~2bal                           ; 2       ;
 ; ttl_7474:tm2|Q_current[0]           ; 2       ;
+; comb~2                              ; 2       ;
 ; ttl_7474:tm2|Preset_bar_previous[0] ; 2       ;
 ; d[7]                                ; 1       ;
 ; d[6]                                ; 1       ;
 ; d[5]                                ; 1       ;
-; d[4]                                ; 1       ;
-; d[3]                                ; 1       ;
 ; d[0]                                ; 1       ;
-; clk350                              ; 1       ;
 ; ttl_7474:tm2|Q_current[0]~6         ; 1       ;
+; pre_beeper                          ; 1       ;
+; clk_div_cnt                         ; 1       ;
 ; bdir~2                              ; 1       ;
 ; bc1~3                               ; 1       ;
-; clk_div_cnt                         ; 1       ;
+; pre_tapeout                         ; 1       ;
 +-------------------------------------+---------+
 
 
@@ -279,17 +318,17 @@ Note: User assignments will override these defaults. The user specified values a
 ; Other Routing Resource Type ; Usage            ;
 +-----------------------------+------------------+
 ; Output enables              ; 0 / 6 ( 0 % )    ;
-; PIA buffers                 ; 17 / 72 ( 24 % ) ;
+; PIA buffers                 ; 20 / 72 ( 28 % ) ;
 +-----------------------------+------------------+
 
 
 +----------------------------------------------------------------------+
 ; LAB Macrocells                                                       ;
 +----------------------------------------+-----------------------------+
-; Number of Macrocells  (Average = 3.50) ; Number of LABs  (Total = 1) ;
+; Number of Macrocells  (Average = 4.00) ; Number of LABs  (Total = 2) ;
 +----------------------------------------+-----------------------------+
-; 0                                      ; 1                           ;
-; 1                                      ; 0                           ;
+; 0                                      ; 0                           ;
+; 1                                      ; 1                           ;
 ; 2                                      ; 0                           ;
 ; 3                                      ; 0                           ;
 ; 4                                      ; 0                           ;
@@ -299,19 +338,30 @@ Note: User assignments will override these defaults. The user specified values a
 +----------------------------------------+-----------------------------+
 
 
-+-------------------------------------------------------------------------------------------------------------------------------------------------+
-; Logic Cell Interconnection                                                                                                                      ;
-+-----+------------+-------------------------------------------------------------+----------------------------------------------------------------+
-; LAB ; Logic Cell ; Input                                                       ; Output                                                         ;
-+-----+------------+-------------------------------------------------------------+----------------------------------------------------------------+
-;  A  ; LC10       ; clk350                                                      ; clk175                                                         ;
-;  A  ; LC7        ; a14, m1, a1, a15, iorq                                      ; bc1                                                            ;
-;  A  ; LC8        ; wr, a1, a15, iorq                                           ; bdir                                                           ;
-;  A  ; LC4        ; reset, ttl_7474:tm2|Preset_bar_previous[0], comb~2bal       ; ttl_7474:tm2|Preset_bar_previous[0], ttl_7474:tm2|Q_current[0] ;
-;  A  ; LC2        ; reset, ttl_7474:tm2|Preset_bar_previous[0], d[0], comb~2bal ; a8[1], ttl_7474:tm2|Q_current[0]~6                             ;
-;  A  ; LC3        ; ttl_7474:tm2|Q_current[0]                                   ; a8[0]                                                          ;
-;  A  ; LC6        ; a14, m1, a1, a15, iorq, wr, d[3], d[4], d[5], d[6], d[7]    ; ttl_7474:tm2|Preset_bar_previous[0], ttl_7474:tm2|Q_current[0] ;
-+-----+------------+-------------------------------------------------------------+----------------------------------------------------------------+
++-------------------------------------------------------------------------------+
+; Shareable Expander                                                            ;
++-------------------------------------------------+-----------------------------+
+; Number of shareable expanders  (Average = 0.50) ; Number of LABs  (Total = 1) ;
++-------------------------------------------------+-----------------------------+
+; 0                                               ; 1                           ;
+; 1                                               ; 1                           ;
++-------------------------------------------------+-----------------------------+
+
+
++----------------------------------------------------------------------------------------------------------------------------------------------+
+; Logic Cell Interconnection                                                                                                                   ;
++-----+------------+----------------------------------------------------------+----------------------------------------------------------------+
+; LAB ; Logic Cell ; Input                                                    ; Output                                                         ;
++-----+------------+----------------------------------------------------------+----------------------------------------------------------------+
+;  A  ; LC11       ; a14, m1, a1, a15, iorq                                   ; bc1                                                            ;
+;  A  ; LC10       ; wr, a1, a15, iorq                                        ; bdir                                                           ;
+;  A  ; LC13       ; clk350                                                   ; clk175                                                         ;
+;  A  ; LC16       ; clk350, d[4], a0, iorq, wr                               ; beeper                                                         ;
+;  A  ; LC2        ; reset, ttl_7474:tm2|Preset_bar_previous[0], comb~2       ; ttl_7474:tm2|Preset_bar_previous[0], ttl_7474:tm2|Q_current[0] ;
+;  A  ; LC15       ; reset, ttl_7474:tm2|Preset_bar_previous[0], d[0], comb~2 ; a8[1], ttl_7474:tm2|Q_current[0]~6                             ;
+;  A  ; LC14       ; ttl_7474:tm2|Q_current[0]                                ; a8[0]                                                          ;
+;  B  ; LC32       ; clk350, d[3], a0, iorq, wr                               ; tapeout                                                        ;
++-----+------------+----------------------------------------------------------+----------------------------------------------------------------+
 
 
 +---------------------------------------------------------------+
@@ -336,8 +386,8 @@ Warning (20028): Parallel compilation is not licensed and has been disabled
 Info (119006): Selected device EPM3032ALC44-10 for design "EPM3032_YM2149x2"
 Info: Quartus II 64-Bit Fitter was successful. 0 errors, 1 warning
     Info: Peak virtual memory: 4674 megabytes
-    Info: Processing ended: Wed Jun 29 20:26:26 2022
-    Info: Elapsed time: 00:00:02
+    Info: Processing ended: Wed Jul 06 23:29:24 2022
+    Info: Elapsed time: 00:00:01
     Info: Total CPU time (on all processors): 00:00:01
 
 

@@ -18,12 +18,12 @@ Type  : Hold 'clk350'
 Slack : 5.600
 TNS   : 0.000
 
+Type  : Minimum Pulse Width 'clk350'
+Slack : -3.500
+TNS   : -21.000
+
 Type  : Minimum Pulse Width 'a1'
 Slack : -3.500
 TNS   : -14.000
-
-Type  : Minimum Pulse Width 'clk350'
-Slack : -3.500
-TNS   : -7.000
 
 ------------------------------------------------------------
