@@ -13,14 +13,17 @@ output bdir,
 output clk175, 
 output [1:0]a8,
 output beeper,
-output tapeout
+output tapeout,
+output ioge_c
 );
 
 // Дешифрация звукового генератора.
 wire	ssg;
 assign ssg = ~(a15 & ( ~(a1 | iorq)));
-assign bc1  = ~( ssg | (~(a14 & m1)));
-assign bdir = ~( ssg | wr);
+assign bc1  = ~(ssg | (~(a14 & m1)));
+assign bdir = ~(ssg | wr);
+
+assign ioge_c = ~ssg;
 
 wire dd = ~(d[3] & d[4] & d[5] & d[6] & d[7] & bdir & bc1); 
 wire vcc = 1'b1;
@@ -41,11 +44,11 @@ end
 reg clk_div_cnt 	= 1'd0;
 assign clk175 = clk_div_cnt;
 
-// Дешифрация бипера. Работает аналогично пентагоновской схеме.
+// Дешифрация бипера и tapeout. Работает аналогично пентагоновской схеме.
 reg pre_beeper;
 reg pre_tapeout;
 always @(negedge clk350) begin
-	if( ~(iorq | wr | a0) ) pre_beeper = d[4];
+	if( ~(iorq | wr | a0) ) pre_beeper  = d[4];
 	if( ~(iorq | wr | a0) ) pre_tapeout = d[3];
 end
 assign beeper = pre_beeper;

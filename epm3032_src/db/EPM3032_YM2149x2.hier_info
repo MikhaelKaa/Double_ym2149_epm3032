@@ -27,6 +27,7 @@ a8[0] <= ttl_7474:tm2.Q_bar
 a8[1] <= ttl_7474:tm2.Q
 beeper <= pre_beeper.DB_MAX_OUTPUT_PORT_TYPE
 tapeout <= pre_tapeout.DB_MAX_OUTPUT_PORT_TYPE
+ioge_c <= ioge_c.DB_MAX_OUTPUT_PORT_TYPE
 
 
 |EPM3032_YM2149x2|ttl_7474:tm2

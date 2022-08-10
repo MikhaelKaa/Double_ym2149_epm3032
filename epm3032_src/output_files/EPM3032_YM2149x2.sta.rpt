@@ -1,5 +1,5 @@
 TimeQuest Timing Analyzer report for EPM3032_YM2149x2
-Wed Jul 06 23:29:27 2022
+Tue Aug 09 14:27:33 2022
 Quartus II 64-Bit Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition
 
 
@@ -214,8 +214,8 @@ No paths to report.
 ; -3.500 ; 0.500        ; 4.000          ; Low Pulse Width  ; a1    ; Rise       ; ttl_7474:tm2|Q_current[0]           ;
 ; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; a1    ; Rise       ; a1|dataout                          ;
 ; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; a1    ; Rise       ; a1|dataout                          ;
-; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; a1    ; Rise       ; comb~2|datain[2]                    ;
-; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; a1    ; Rise       ; comb~2|datain[2]                    ;
+; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; a1    ; Rise       ; comb~2|datain[0]                    ;
+; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; a1    ; Rise       ; comb~2|datain[0]                    ;
 ; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; a1    ; Fall       ; comb~2|dataout                      ;
 ; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; a1    ; Fall       ; comb~2|dataout                      ;
 ; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; a1    ; Fall       ; tm2|Preset_bar_previous[0]|[2]      ;
@@ -230,9 +230,9 @@ No paths to report.
 +-----------+------------+--------+--------+------------+-----------------+
 ; Data Port ; Clock Port ; Rise   ; Fall   ; Clock Edge ; Clock Reference ;
 +-----------+------------+--------+--------+------------+-----------------+
-; d[*]      ; a1         ; -0.400 ; -0.400 ; Rise       ; a1              ;
-;  d[0]     ; a1         ; -0.400 ; -0.400 ; Rise       ; a1              ;
-; reset     ; a1         ; -0.400 ; -0.400 ; Rise       ; a1              ;
+; d[*]      ; a1         ; -0.500 ; -0.500 ; Rise       ; a1              ;
+;  d[0]     ; a1         ; -0.500 ; -0.500 ; Rise       ; a1              ;
+; reset     ; a1         ; -0.500 ; -0.500 ; Rise       ; a1              ;
 ; a0        ; clk350     ; 4.300  ; 4.300  ; Fall       ; clk350          ;
 ; d[*]      ; clk350     ; 6.400  ; 6.400  ; Fall       ; clk350          ;
 ;  d[3]     ; clk350     ; 6.400  ; 6.400  ; Fall       ; clk350          ;
@@ -247,9 +247,9 @@ No paths to report.
 +-----------+------------+--------+--------+------------+-----------------+
 ; Data Port ; Clock Port ; Rise   ; Fall   ; Clock Edge ; Clock Reference ;
 +-----------+------------+--------+--------+------------+-----------------+
-; d[*]      ; a1         ; 4.500  ; 4.500  ; Rise       ; a1              ;
-;  d[0]     ; a1         ; 4.500  ; 4.500  ; Rise       ; a1              ;
-; reset     ; a1         ; 4.500  ; 4.500  ; Rise       ; a1              ;
+; d[*]      ; a1         ; 4.600  ; 4.600  ; Rise       ; a1              ;
+;  d[0]     ; a1         ; 4.600  ; 4.600  ; Rise       ; a1              ;
+; reset     ; a1         ; 4.600  ; 4.600  ; Rise       ; a1              ;
 ; a0        ; clk350     ; -0.200 ; -0.200 ; Fall       ; clk350          ;
 ; d[*]      ; clk350     ; -2.200 ; -2.200 ; Fall       ; clk350          ;
 ;  d[3]     ; clk350     ; -2.300 ; -2.300 ; Fall       ; clk350          ;
@@ -264,13 +264,15 @@ No paths to report.
 +-----------+------------+--------+--------+------------+-----------------+
 ; Data Port ; Clock Port ; Rise   ; Fall   ; Clock Edge ; Clock Reference ;
 +-----------+------------+--------+--------+------------+-----------------+
-; a8[*]     ; a1         ; 20.100 ; 20.100 ; Rise       ; a1              ;
-;  a8[0]    ; a1         ; 20.100 ; 20.100 ; Rise       ; a1              ;
-;  a8[1]    ; a1         ; 13.400 ; 13.400 ; Rise       ; a1              ;
-; bc1       ; a1         ; 10.000 ; 10.000 ; Rise       ; a1              ;
-; bdir      ; a1         ; 10.000 ; 10.000 ; Rise       ; a1              ;
-; bc1       ; a1         ; 10.000 ; 10.000 ; Fall       ; a1              ;
-; bdir      ; a1         ; 10.000 ; 10.000 ; Fall       ; a1              ;
+; a8[*]     ; a1         ; 20.200 ; 20.200 ; Rise       ; a1              ;
+;  a8[0]    ; a1         ; 20.200 ; 20.200 ; Rise       ; a1              ;
+;  a8[1]    ; a1         ; 13.500 ; 13.500 ; Rise       ; a1              ;
+; bc1       ; a1         ; 10.100 ; 10.100 ; Rise       ; a1              ;
+; bdir      ; a1         ; 10.100 ; 10.100 ; Rise       ; a1              ;
+; ioge_c    ; a1         ; 10.100 ; 10.100 ; Rise       ; a1              ;
+; bc1       ; a1         ; 10.100 ; 10.100 ; Fall       ; a1              ;
+; bdir      ; a1         ; 10.100 ; 10.100 ; Fall       ; a1              ;
+; ioge_c    ; a1         ; 10.100 ; 10.100 ; Fall       ; a1              ;
 ; beeper    ; clk350     ; 6.700  ; 6.700  ; Fall       ; clk350          ;
 ; clk175    ; clk350     ; 6.700  ; 6.700  ; Fall       ; clk350          ;
 ; tapeout   ; clk350     ; 6.700  ; 6.700  ; Fall       ; clk350          ;
@@ -282,13 +284,15 @@ No paths to report.
 +-----------+------------+--------+--------+------------+-----------------+
 ; Data Port ; Clock Port ; Rise   ; Fall   ; Clock Edge ; Clock Reference ;
 +-----------+------------+--------+--------+------------+-----------------+
-; a8[*]     ; a1         ; 13.400 ; 13.400 ; Rise       ; a1              ;
-;  a8[0]    ; a1         ; 20.100 ; 20.100 ; Rise       ; a1              ;
-;  a8[1]    ; a1         ; 13.400 ; 13.400 ; Rise       ; a1              ;
-; bc1       ; a1         ; 10.000 ; 10.000 ; Rise       ; a1              ;
-; bdir      ; a1         ; 10.000 ; 10.000 ; Rise       ; a1              ;
-; bc1       ; a1         ; 10.000 ; 10.000 ; Fall       ; a1              ;
-; bdir      ; a1         ; 10.000 ; 10.000 ; Fall       ; a1              ;
+; a8[*]     ; a1         ; 13.500 ; 13.500 ; Rise       ; a1              ;
+;  a8[0]    ; a1         ; 20.200 ; 20.200 ; Rise       ; a1              ;
+;  a8[1]    ; a1         ; 13.500 ; 13.500 ; Rise       ; a1              ;
+; bc1       ; a1         ; 10.100 ; 10.100 ; Rise       ; a1              ;
+; bdir      ; a1         ; 10.100 ; 10.100 ; Rise       ; a1              ;
+; ioge_c    ; a1         ; 10.100 ; 10.100 ; Rise       ; a1              ;
+; bc1       ; a1         ; 10.100 ; 10.100 ; Fall       ; a1              ;
+; bdir      ; a1         ; 10.100 ; 10.100 ; Fall       ; a1              ;
+; ioge_c    ; a1         ; 10.100 ; 10.100 ; Fall       ; a1              ;
 ; beeper    ; clk350     ; 6.700  ; 6.700  ; Fall       ; clk350          ;
 ; clk175    ; clk350     ; 6.700  ; 6.700  ; Fall       ; clk350          ;
 ; tapeout   ; clk350     ; 6.700  ; 6.700  ; Fall       ; clk350          ;
@@ -301,10 +305,12 @@ No paths to report.
 ; Input Port ; Output Port ; RR     ; RF     ; FR     ; FF     ;
 +------------+-------------+--------+--------+--------+--------+
 ; a14        ; bc1         ; 10.000 ;        ;        ; 10.000 ;
-; a15        ; bc1         ; 10.000 ;        ;        ; 10.000 ;
-; a15        ; bdir        ; 10.000 ;        ;        ; 10.000 ;
+; a15        ; bc1         ; 10.100 ;        ;        ; 10.100 ;
+; a15        ; bdir        ; 10.100 ;        ;        ; 10.100 ;
+; a15        ; ioge_c      ; 10.100 ;        ;        ; 10.100 ;
 ; iorq       ; bc1         ;        ; 10.100 ; 10.100 ;        ;
 ; iorq       ; bdir        ;        ; 10.100 ; 10.100 ;        ;
+; iorq       ; ioge_c      ;        ; 10.100 ; 10.100 ;        ;
 ; m1         ; bc1         ; 10.000 ;        ;        ; 10.000 ;
 ; wr         ; bdir        ;        ; 10.100 ; 10.100 ;        ;
 +------------+-------------+--------+--------+--------+--------+
@@ -316,10 +322,12 @@ No paths to report.
 ; Input Port ; Output Port ; RR     ; RF     ; FR     ; FF     ;
 +------------+-------------+--------+--------+--------+--------+
 ; a14        ; bc1         ; 10.000 ;        ;        ; 10.000 ;
-; a15        ; bc1         ; 10.000 ;        ;        ; 10.000 ;
-; a15        ; bdir        ; 10.000 ;        ;        ; 10.000 ;
+; a15        ; bc1         ; 10.100 ;        ;        ; 10.100 ;
+; a15        ; bdir        ; 10.100 ;        ;        ; 10.100 ;
+; a15        ; ioge_c      ; 10.100 ;        ;        ; 10.100 ;
 ; iorq       ; bc1         ;        ; 10.100 ; 10.100 ;        ;
 ; iorq       ; bdir        ;        ; 10.100 ; 10.100 ;        ;
+; iorq       ; ioge_c      ;        ; 10.100 ; 10.100 ;        ;
 ; m1         ; bc1         ; 10.000 ;        ;        ; 10.000 ;
 ; wr         ; bdir        ;        ; 10.100 ; 10.100 ;        ;
 +------------+-------------+--------+--------+--------+--------+
@@ -367,9 +375,9 @@ No dedicated SERDES Receiver circuitry present in device or used in design
 ; Illegal Clocks                  ; 0     ; 0    ;
 ; Unconstrained Clocks            ; 0     ; 0    ;
 ; Unconstrained Input Ports       ; 11    ; 11   ;
-; Unconstrained Input Port Paths  ; 20    ; 20   ;
-; Unconstrained Output Ports      ; 7     ; 7    ;
-; Unconstrained Output Port Paths ; 14    ; 14   ;
+; Unconstrained Input Port Paths  ; 23    ; 23   ;
+; Unconstrained Output Ports      ; 8     ; 8    ;
+; Unconstrained Output Port Paths ; 17    ; 17   ;
 +---------------------------------+-------+------+
 
 
@@ -379,7 +387,7 @@ No dedicated SERDES Receiver circuitry present in device or used in design
 Info: *******************************************************************
 Info: Running Quartus II 64-Bit TimeQuest Timing Analyzer
     Info: Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition
-    Info: Processing started: Wed Jul 06 23:29:26 2022
+    Info: Processing started: Tue Aug 09 14:27:32 2022
 Info: Command: quartus_sta EPM3032_YM2149x2 -c EPM3032_YM2149x2
 Info: qsta_default_script.tcl version: #1
 Warning (20028): Parallel compilation is not licensed and has been disabled
@@ -415,7 +423,7 @@ Info (332102): Design is not fully constrained for setup requirements
 Info (332102): Design is not fully constrained for hold requirements
 Info: Quartus II 64-Bit TimeQuest Timing Analyzer was successful. 0 errors, 4 warnings
     Info: Peak virtual memory: 4503 megabytes
-    Info: Processing ended: Wed Jul 06 23:29:27 2022
+    Info: Processing ended: Tue Aug 09 14:27:33 2022
     Info: Elapsed time: 00:00:01
     Info: Total CPU time (on all processors): 00:00:01
 

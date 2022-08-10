@@ -64,7 +64,7 @@ Pin Name/Usage               : Location  : Dir.   : I/O Standard      : Voltage 
 GND+                         : 1         :        :                   :         :           :                
 GND+                         : 2         :        :                   :         :           :                
 VCCINT                       : 3         : power  :                   : 3.3V    :           :                
-RESERVED                     : 4         :        :                   :         :           :                
+reset                        : 4         : input  : 3.3-V LVTTL       :         :           : Y              
 d[4]                         : 5         : input  : 3.3-V LVTTL       :         :           : Y              
 iorq                         : 6         : input  : 3.3-V LVTTL       :         :           : Y              
 TDI                          : 7         : input  : 3.3-V LVTTL       :         :           : N              
@@ -85,9 +85,9 @@ beeper                       : 21        : output : 3.3-V LVTTL       :         
 GND                          : 22        : gnd    :                   :         :           :                
 VCCINT                       : 23        : power  :                   : 3.3V    :           :                
 tapeout                      : 24        : output : 3.3-V LVTTL       :         :           : Y              
-reset                        : 25        : input  : 3.3-V LVTTL       :         :           : N              
+RESERVED                     : 25        :        :                   :         :           :                
 RESERVED                     : 26        :        :                   :         :           :                
-RESERVED                     : 27        :        :                   :         :           :                
+ioge_c                       : 27        : output : 3.3-V LVTTL       :         :           : Y              
 d[1]                         : 28        : input  : 3.3-V LVTTL       :         :           : Y              
 a14                          : 29        : input  : 3.3-V LVTTL       :         :           : Y              
 GND                          : 30        : gnd    :                   :         :           :                

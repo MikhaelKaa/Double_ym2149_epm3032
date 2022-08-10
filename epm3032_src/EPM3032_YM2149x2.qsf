@@ -71,3 +71,5 @@ set_location_assignment PIN_12 -to wr
 set_location_assignment PIN_11 -to a0
 set_location_assignment PIN_21 -to beeper
 set_location_assignment PIN_24 -to tapeout
+set_location_assignment PIN_4 -to reset
+set_location_assignment PIN_27 -to ioge_c
