@@ -86,14 +86,14 @@ GND                          : 22        : gnd    :                   :         
 VCCINT                       : 23        : power  :                   : 3.3V    :           :                
 tapeout                      : 24        : output : 3.3-V LVTTL       :         :           : Y              
 RESERVED                     : 25        :        :                   :         :           :                
-RESERVED                     : 26        :        :                   :         :           :                
+d[7]                         : 26        : input  : 3.3-V LVTTL       :         :           : Y              
 ioge_c                       : 27        : output : 3.3-V LVTTL       :         :           : Y              
 d[1]                         : 28        : input  : 3.3-V LVTTL       :         :           : Y              
 a14                          : 29        : input  : 3.3-V LVTTL       :         :           : Y              
 GND                          : 30        : gnd    :                   :         :           :                
 a15                          : 31        : input  : 3.3-V LVTTL       :         :           : Y              
 TCK                          : 32        : input  : 3.3-V LVTTL       :         :           : N              
-d[7]                         : 33        : input  : 3.3-V LVTTL       :         :           : Y              
+d7_alt                       : 33        : input  : 3.3-V LVTTL       :         :           : Y              
 d[0]                         : 34        : input  : 3.3-V LVTTL       :         :           : Y              
 VCCIO                        : 35        : power  :                   : 3.3V    :           :                
 GND                          : 36        : gnd    :                   :         :           :                

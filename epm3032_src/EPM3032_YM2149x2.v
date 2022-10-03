@@ -7,6 +7,7 @@ input wr,
 input clk350, 
 input reset, 
 input [7:0]d, 
+input d7_alt,
 
 output bc1, 
 output bdir, 
@@ -45,7 +46,19 @@ reg clk_div_cnt 	= 1'd0;
 assign clk175 = clk_div_cnt;
 
 // Дешифрация бипера и tapeout. Работает аналогично пентагоновской схеме.
+
+// d7 on 26 pin
 reg pre_beeper;
+reg pre_tapeout;
+always @(negedge wr) begin
+	if( ~( iorq | a0) ) pre_beeper  = d[4];
+	if( ~( iorq | a0) ) pre_tapeout = d[3];
+end
+assign beeper = pre_beeper;
+assign tapeout = pre_tapeout;
+
+// d7 on 33 pin
+/*reg pre_beeper;
 reg pre_tapeout;
 always @(negedge clk350) begin
 	if( ~(iorq | wr | a0) ) pre_beeper  = d[4];
@@ -53,6 +66,7 @@ always @(negedge clk350) begin
 end
 assign beeper = pre_beeper;
 assign tapeout = pre_tapeout;
+*/
 
 endmodule
 

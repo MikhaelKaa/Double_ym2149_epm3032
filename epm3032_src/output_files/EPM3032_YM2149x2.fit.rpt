@@ -1,5 +1,5 @@
 Fitter report for EPM3032_YM2149x2
-Tue Aug 09 14:27:30 2022
+Mon Oct 03 04:42:05 2022
 Quartus II 64-Bit Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition
 
 
@@ -53,7 +53,7 @@ applicable agreement for further details.
 +-----------------------------------------------------------------------------+
 ; Fitter Summary                                                              ;
 +---------------------------+-------------------------------------------------+
-; Fitter Status             ; Successful - Tue Aug 09 14:27:30 2022           ;
+; Fitter Status             ; Successful - Mon Oct 03 04:42:05 2022           ;
 ; Quartus II 64-Bit Version ; 13.0.1 Build 232 06/12/2013 SP 1 SJ Web Edition ;
 ; Revision Name             ; EPM3032_YM2149x2                                ;
 ; Top-level Entity Name     ; EPM3032_YM2149x2                                ;
@@ -61,7 +61,7 @@ applicable agreement for further details.
 ; Device                    ; EPM3032ALC44-10                                 ;
 ; Timing Models             ; Final                                           ;
 ; Total macrocells          ; 9 / 32 ( 28 % )                                 ;
-; Total pins                ; 29 / 34 ( 85 % )                                ;
+; Total pins                ; 30 / 34 ( 88 % )                                ;
 +---------------------------+-------------------------------------------------+
 
 
@@ -109,8 +109,8 @@ The pin-out file can be found in C:/Users/union/Documents/Projects/Speccy/double
 +------------------------------+------------------+
 ; Logic cells                  ; 9 / 32 ( 28 % )  ;
 ; Registers                    ; 5 / 32 ( 16 % )  ;
-; Number of pterms used        ; 15               ;
-; I/O pins                     ; 29 / 34 ( 85 % ) ;
+; Number of pterms used        ; 17               ;
+; I/O pins                     ; 30 / 34 ( 88 % ) ;
 ;     -- Clock pins            ; 1 / 2 ( 50 % )   ;
 ;     -- Dedicated input pins  ; 0 / 2 ( 0 % )    ;
 ;                              ;                  ;
@@ -121,7 +121,7 @@ The pin-out file can be found in C:/Users/union/Documents/Projects/Speccy/double
 ; Maximum fan-out              ; 6                ;
 ; Highest non-global fan-out   ; 6                ;
 ; Total fan-out                ; 50               ;
-; Average fan-out              ; 1.28             ;
+; Average fan-out              ; 1.25             ;
 +------------------------------+------------------+
 
 
@@ -134,7 +134,8 @@ The pin-out file can be found in C:/Users/union/Documents/Projects/Speccy/double
 ; a1     ; 9     ; --       ; 1   ; 4                     ; 0                  ; no     ; 3.3-V LVTTL  ; User                 ;
 ; a14    ; 29    ; --       ; 2   ; 2                     ; 0                  ; no     ; 3.3-V LVTTL  ; User                 ;
 ; a15    ; 31    ; --       ; 2   ; 4                     ; 0                  ; no     ; 3.3-V LVTTL  ; User                 ;
-; clk350 ; 43    ; --       ; --  ; 3                     ; 0                  ; yes    ; 3.3-V LVTTL  ; User                 ;
+; clk350 ; 43    ; --       ; --  ; 1                     ; 0                  ; yes    ; 3.3-V LVTTL  ; User                 ;
+; d7_alt ; 33    ; --       ; 2   ; 0                     ; 0                  ; no     ; 3.3-V LVTTL  ; User                 ;
 ; d[0]   ; 34    ; --       ; 2   ; 1                     ; 0                  ; no     ; 3.3-V LVTTL  ; User                 ;
 ; d[1]   ; 28    ; --       ; 2   ; 0                     ; 0                  ; no     ; 3.3-V LVTTL  ; User                 ;
 ; d[2]   ; 37    ; --       ; 2   ; 0                     ; 0                  ; no     ; 3.3-V LVTTL  ; User                 ;
@@ -142,7 +143,7 @@ The pin-out file can be found in C:/Users/union/Documents/Projects/Speccy/double
 ; d[4]   ; 5     ; --       ; 1   ; 2                     ; 0                  ; no     ; 3.3-V LVTTL  ; User                 ;
 ; d[5]   ; 40    ; --       ; 2   ; 1                     ; 0                  ; no     ; 3.3-V LVTTL  ; User                 ;
 ; d[6]   ; 39    ; --       ; 2   ; 1                     ; 0                  ; no     ; 3.3-V LVTTL  ; User                 ;
-; d[7]   ; 33    ; --       ; 2   ; 1                     ; 0                  ; no     ; 3.3-V LVTTL  ; User                 ;
+; d[7]   ; 26    ; --       ; 2   ; 1                     ; 0                  ; no     ; 3.3-V LVTTL  ; User                 ;
 ; iorq   ; 6     ; --       ; 1   ; 6                     ; 0                  ; no     ; 3.3-V LVTTL  ; User                 ;
 ; m1     ; 8     ; --       ; 1   ; 2                     ; 0                  ; no     ; 3.3-V LVTTL  ; User                 ;
 ; reset  ; 4     ; --       ; 1   ; 2                     ; 0                  ; no     ; 3.3-V LVTTL  ; User                 ;
@@ -196,14 +197,14 @@ The pin-out file can be found in C:/Users/union/Documents/Projects/Speccy/double
 ; 23       ; 22         ; --       ; VCCINT         ; power  ;              ; 3.3V    ;                 ;
 ; 24       ; 23         ; --       ; tapeout        ; output ; 3.3-V LVTTL  ;         ; Y               ;
 ; 25       ; 24         ; --       ; RESERVED       ;        ;              ;         ;                 ;
-; 26       ; 25         ; --       ; RESERVED       ;        ;              ;         ;                 ;
+; 26       ; 25         ; --       ; d[7]           ; input  ; 3.3-V LVTTL  ;         ; Y               ;
 ; 27       ; 26         ; --       ; ioge_c         ; output ; 3.3-V LVTTL  ;         ; Y               ;
 ; 28       ; 27         ; --       ; d[1]           ; input  ; 3.3-V LVTTL  ;         ; Y               ;
 ; 29       ; 28         ; --       ; a14            ; input  ; 3.3-V LVTTL  ;         ; Y               ;
 ; 30       ; 29         ; --       ; GND            ; gnd    ;              ;         ;                 ;
 ; 31       ; 30         ; --       ; a15            ; input  ; 3.3-V LVTTL  ;         ; Y               ;
 ; 32       ; 31         ; --       ; TCK            ; input  ; 3.3-V LVTTL  ;         ; N               ;
-; 33       ; 32         ; --       ; d[7]           ; input  ; 3.3-V LVTTL  ;         ; Y               ;
+; 33       ; 32         ; --       ; d7_alt         ; input  ; 3.3-V LVTTL  ;         ; Y               ;
 ; 34       ; 33         ; --       ; d[0]           ; input  ; 3.3-V LVTTL  ;         ; Y               ;
 ; 35       ; 34         ; --       ; VCCIO          ; power  ;              ; 3.3V    ;                 ;
 ; 36       ; 35         ; --       ; GND            ; gnd    ;              ;         ;                 ;
@@ -255,22 +256,20 @@ Note: User assignments will override these defaults. The user specified values a
 +----------------------------+------------+------+--------------------------------+--------------+
 ; Compilation Hierarchy Node ; Macrocells ; Pins ; Full Hierarchy Name            ; Library Name ;
 +----------------------------+------------+------+--------------------------------+--------------+
-; |EPM3032_YM2149x2          ; 9          ; 29   ; |EPM3032_YM2149x2              ; work         ;
+; |EPM3032_YM2149x2          ; 9          ; 30   ; |EPM3032_YM2149x2              ; work         ;
 ;    |ttl_7474:tm2|          ; 3          ; 0    ; |EPM3032_YM2149x2|ttl_7474:tm2 ; work         ;
 +----------------------------+------------+------+--------------------------------+--------------+
 
 
-+-----------------------------------------------------------------------------------------------+
-; Control Signals                                                                               ;
-+--------+----------+---------+--------------+--------+----------------------+------------------+
-; Name   ; Location ; Fan-Out ; Usage        ; Global ; Global Resource Used ; Global Line Name ;
-+--------+----------+---------+--------------+--------+----------------------+------------------+
-; a0     ; PIN_11   ; 2       ; Clock enable ; no     ; --                   ; --               ;
-; clk350 ; PIN_43   ; 3       ; Clock        ; yes    ; On                   ; --               ;
-; comb~2 ; SEXP6    ; 2       ; Clock        ; no     ; --                   ; --               ;
-; iorq   ; PIN_6    ; 6       ; Clock enable ; no     ; --                   ; --               ;
-; wr     ; PIN_12   ; 4       ; Clock enable ; no     ; --                   ; --               ;
-+--------+----------+---------+--------------+--------+----------------------+------------------+
++----------------------------------------------------------------------------------------+
+; Control Signals                                                                        ;
++--------+----------+---------+-------+--------+----------------------+------------------+
+; Name   ; Location ; Fan-Out ; Usage ; Global ; Global Resource Used ; Global Line Name ;
++--------+----------+---------+-------+--------+----------------------+------------------+
+; clk350 ; PIN_43   ; 1       ; Clock ; yes    ; On                   ; --               ;
+; comb~2 ; SEXP6    ; 2       ; Clock ; no     ; --                   ; --               ;
+; wr     ; PIN_12   ; 4       ; Clock ; no     ; --                   ; --               ;
++--------+----------+---------+-------+--------+----------------------+------------------+
 
 
 +-----------------------------------------------------------------------+
@@ -278,7 +277,7 @@ Note: User assignments will override these defaults. The user specified values a
 +--------+----------+---------+----------------------+------------------+
 ; Name   ; Location ; Fan-Out ; Global Resource Used ; Global Line Name ;
 +--------+----------+---------+----------------------+------------------+
-; clk350 ; PIN_43   ; 3       ; On                   ; --               ;
+; clk350 ; PIN_43   ; 1       ; On                   ; --               ;
 +--------+----------+---------+----------------------+------------------+
 
 
@@ -300,16 +299,16 @@ Note: User assignments will override these defaults. The user specified values a
 ; ttl_7474:tm2|Q_current[0]           ; 2       ;
 ; comb~2                              ; 2       ;
 ; ttl_7474:tm2|Preset_bar_previous[0] ; 2       ;
+; pre_beeper                          ; 2       ;
+; pre_tapeout                         ; 2       ;
 ; d[7]                                ; 1       ;
 ; d[6]                                ; 1       ;
 ; d[5]                                ; 1       ;
 ; d[0]                                ; 1       ;
 ; ttl_7474:tm2|Q_current[0]~6         ; 1       ;
-; pre_beeper                          ; 1       ;
 ; clk_div_cnt                         ; 1       ;
 ; bdir~2                              ; 1       ;
 ; bc1~2                               ; 1       ;
-; pre_tapeout                         ; 1       ;
 ; ssg~3                               ; 1       ;
 +-------------------------------------+---------+
 
@@ -320,7 +319,7 @@ Note: User assignments will override these defaults. The user specified values a
 ; Other Routing Resource Type ; Usage            ;
 +-----------------------------+------------------+
 ; Output enables              ; 0 / 6 ( 0 % )    ;
-; PIA buffers                 ; 22 / 72 ( 31 % ) ;
+; PIA buffers                 ; 24 / 72 ( 33 % ) ;
 +-----------------------------+------------------+
 
 
@@ -358,12 +357,12 @@ Note: User assignments will override these defaults. The user specified values a
 ;  A  ; LC11       ; a1, a15, iorq, a14, m1                                   ; bc1                                                            ;
 ;  A  ; LC10       ; a1, a15, iorq, wr                                        ; bdir                                                           ;
 ;  A  ; LC13       ; clk350                                                   ; clk175                                                         ;
-;  A  ; LC16       ; clk350, d[4], a0, iorq, wr                               ; beeper                                                         ;
+;  A  ; LC16       ; d[4], a0, iorq, pre_beeper, wr                           ; pre_beeper, beeper                                             ;
 ;  A  ; LC6        ; reset, ttl_7474:tm2|Preset_bar_previous[0], comb~2       ; ttl_7474:tm2|Preset_bar_previous[0], ttl_7474:tm2|Q_current[0] ;
 ;  A  ; LC15       ; reset, ttl_7474:tm2|Preset_bar_previous[0], d[0], comb~2 ; a8[1], ttl_7474:tm2|Q_current[0]~6                             ;
 ;  A  ; LC14       ; ttl_7474:tm2|Q_current[0]                                ; a8[0]                                                          ;
 ;  B  ; LC29       ; a1, a15, iorq                                            ; ioge_c                                                         ;
-;  B  ; LC32       ; clk350, d[3], a0, iorq, wr                               ; tapeout                                                        ;
+;  B  ; LC32       ; d[3], a0, iorq, pre_tapeout, wr                          ; pre_tapeout, tapeout                                           ;
 +-----+------------+----------------------------------------------------------+----------------------------------------------------------------+
 
 
@@ -389,7 +388,7 @@ Warning (20028): Parallel compilation is not licensed and has been disabled
 Info (119006): Selected device EPM3032ALC44-10 for design "EPM3032_YM2149x2"
 Info: Quartus II 64-Bit Fitter was successful. 0 errors, 1 warning
     Info: Peak virtual memory: 4674 megabytes
-    Info: Processing ended: Tue Aug 09 14:27:30 2022
+    Info: Processing ended: Mon Oct 03 04:42:05 2022
     Info: Elapsed time: 00:00:01
     Info: Total CPU time (on all processors): 00:00:01
 
