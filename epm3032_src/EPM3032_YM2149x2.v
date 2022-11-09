@@ -1,117 +1,103 @@
 module EPM3032_YM2149x2 (
-input a1, input a14, input a15,
-input a0,
-input m1, 
-input iorq, 
-input wr, 
-input clk350, 
-input reset, 
-input [7:0]d, 
+input a0, a1, a2, a14, a15,
+input cpu_clock, m1, iorq, wr, int, 
+input reset,  
+input d_0, d_3, d_4, d_5, d_6, d_7,  
 input d7_alt,
+
+output covox, 
 
 output bc1, 
 output bdir, 
-output clk175, 
-output [1:0]a8,
+output ym_clock, 
+output ym_0, ym_1,
 output beeper,
 output tapeout,
-output ioge_c
+output ioge_c,
+output test
 );
 
+
+// Для тактирования звукового генератора.
+reg [11:0] clk_div_cnt;
+reg [5:0] clk_cnt;
+reg clk_check7;
+reg clk_detect_70m;
+
+always @(posedge cpu_clock) begin
+	clk_div_cnt <= clk_div_cnt + 1;
+end	
+wire clk_for_cnt = clk_div_cnt[11];
+
+always @(negedge int) begin
+	clk_check7 = ~clk_check7;
+end
+
+always @(negedge clk_check7) begin
+	clk_detect_70m = clk7_flag;
+end
+wire clk7_flag =  clk_cnt[5];
+
+always @(posedge clk_for_cnt) begin
+	if(clk_check7)clk_cnt = clk_cnt + 1;
+	else clk_cnt = 0;
+end	
+
+assign ym_clock = (clk_detect_70m)?(clk_div_cnt[0]):(cpu_clock);
+
+
+// covox
+assign covox = ~(a2 | iorq | wr);
+
 // Дешифрация звукового генератора.
-wire	ssg;
-assign ssg = ~(a15 & ( ~(a1 | iorq)));
+wire   ssg 	= ~(a15 & (~(a1 | iorq)));
 assign bc1  = ~(ssg | (~(a14 & m1)));
 assign bdir = ~(ssg | wr);
 
-assign ioge_c = ~ssg;
+// IOGE
+assign ioge_c = ~(ssg | (~(a14 & m1) | wr));
 
-wire dd = ~(d[3] & d[4] & d[5] & d[6] & d[7] & bdir & bc1); 
-wire vcc = 1'b1;
+// Turbo Sound
+reg  YM_select;
+wire TS_bit_sel = ~(d_3 & d_4 & d_5 & d_6 & d_7 & bdir & bc1); 
+//wire TS_bit_sel = ~(d_3 & d_4 & d_5 & d_6 & d7_alt & bdir & bc1); 
+always @(negedge TS_bit_sel or negedge reset) begin
+	if(~reset) 	YM_select = 1'b0;
+	else 			YM_select = d_0;
+end
+assign ym_0 = ~YM_select;
+assign ym_1 = ~ym_0;
 
-ttl_7474 tm2(
-  .Preset_bar(reset),
-  .Clear_bar(vcc),
-  .Clk(dd),
-  .D(d[0]),
-  .Q(a8[1]),
-  .Q_bar(a8[0])
-);
 
-// Деление 3.5 МГц на 2 для тактирования звукового генератора.
-always @(negedge clk350) begin
-	clk_div_cnt <= ~clk_div_cnt;
-end	
-reg clk_div_cnt 	= 1'd0;
-assign clk175 = clk_div_cnt;
 
-// Дешифрация бипера и tapeout. Работает аналогично пентагоновской схеме.
+// Дешифрация бипера и tapeout. Аналогично пентагоновской схеме.
 
 // d7 on 26 pin
 reg pre_beeper;
 reg pre_tapeout;
 always @(negedge wr) begin
-	if( ~( iorq | a0) ) pre_beeper  = d[4];
-	if( ~( iorq | a0) ) pre_tapeout = d[3];
+	if( ~( iorq | a0) ) pre_beeper  = d_4;
+	if( ~( iorq | a0) ) pre_tapeout = d_3;
 end
 assign beeper = pre_beeper;
 assign tapeout = pre_tapeout;
 
+
+/*
 // d7 on 33 pin
-/*reg pre_beeper;
+reg pre_beeper;
 reg pre_tapeout;
-always @(negedge clk350) begin
+always @(negedge cpu_clock) begin
 	if( ~(iorq | wr | a0) ) pre_beeper  = d[4];
 	if( ~(iorq | wr | a0) ) pre_tapeout = d[3];
 end
+
 assign beeper = pre_beeper;
-assign tapeout = pre_tapeout;
-*/
+assign tapeout =  pre_tapeout;*/
+
+
+
+//assign beeper = 1'bz;
+//assign tapeout = 1'bz;
 
 endmodule
-
-// https://github.com/TimRudy/ice-chips-verilog/blob/master/source-7400/7474.v
-// Dual D flip-flop with set and clear; positive-edge-triggered
-
-// Note: Preset_bar is synchronous, not asynchronous as specified in datasheet for this device,
-//       in order to meet requirements for FPGA circuit design (see IceChips Technical Notes)
-
-module ttl_7474 #(parameter BLOCKS = 1, DELAY_RISE = 0, DELAY_FALL = 0)
-(
-  input [BLOCKS-1:0] Preset_bar,
-  input [BLOCKS-1:0] Clear_bar,
-  input [BLOCKS-1:0] D,
-  input [BLOCKS-1:0] Clk,
-  output [BLOCKS-1:0] Q,
-  output [BLOCKS-1:0] Q_bar
-);
-
-//------------------------------------------------//
-reg [BLOCKS-1:0] Q_current;
-reg [BLOCKS-1:0] Preset_bar_previous;
-
-generate
-  genvar i;
-  for (i = 0; i < BLOCKS; i = i + 1)
-  begin: gen_blocks
-    always @(posedge Clk[i] or negedge Clear_bar[i])
-    begin
-      if (!Clear_bar[i])
-        Q_current[i] <= 1'b0;
-      else if (!Preset_bar[i] && Preset_bar_previous[i])  // falling edge has occurred
-        Q_current[i] <= 1'b1;
-      else
-      begin
-        Q_current[i] <= D[i];
-        Preset_bar_previous[i] <= Preset_bar[i];
-      end
-    end
-  end
-endgenerate
-//------------------------------------------------//
-
-assign #(DELAY_RISE, DELAY_FALL) Q = Q_current;
-assign #(DELAY_RISE, DELAY_FALL) Q_bar = ~Q_current;
-
-endmodule
-

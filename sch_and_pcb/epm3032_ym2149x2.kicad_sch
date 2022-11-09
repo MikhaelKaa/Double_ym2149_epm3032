@@ -3457,7 +3457,7 @@
     (effects (font (size 1.27 1.27)) (justify left bottom))
     (uuid f9a535bc-f795-4a1a-aa7e-5f2a03bb119b)
   )
-  (label "d2" (at 157.48 53.34 180)
+  (label "int" (at 157.48 53.34 180)
     (effects (font (size 1.27 1.27)) (justify right bottom))
     (uuid fd17eb5f-063d-45eb-8409-4b22ada78c4c)
   )

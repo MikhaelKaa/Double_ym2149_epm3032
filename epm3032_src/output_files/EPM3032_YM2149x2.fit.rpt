@@ -1,5 +1,5 @@
 Fitter report for EPM3032_YM2149x2
-Mon Oct 03 04:42:05 2022
+Wed Nov 09 03:19:40 2022
 Quartus II 64-Bit Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition
 
 
@@ -24,10 +24,9 @@ Quartus II 64-Bit Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edit
  16. Non-Global High Fan-Out Signals
  17. Other Routing Usage Summary
  18. LAB Macrocells
- 19. Shareable Expander
- 20. Logic Cell Interconnection
- 21. Fitter Device Options
- 22. Fitter Messages
+ 19. Logic Cell Interconnection
+ 20. Fitter Device Options
+ 21. Fitter Messages
 
 
 
@@ -53,15 +52,15 @@ applicable agreement for further details.
 +-----------------------------------------------------------------------------+
 ; Fitter Summary                                                              ;
 +---------------------------+-------------------------------------------------+
-; Fitter Status             ; Successful - Mon Oct 03 04:42:05 2022           ;
+; Fitter Status             ; Successful - Wed Nov 09 03:19:40 2022           ;
 ; Quartus II 64-Bit Version ; 13.0.1 Build 232 06/12/2013 SP 1 SJ Web Edition ;
 ; Revision Name             ; EPM3032_YM2149x2                                ;
 ; Top-level Entity Name     ; EPM3032_YM2149x2                                ;
 ; Family                    ; MAX3000A                                        ;
 ; Device                    ; EPM3032ALC44-10                                 ;
 ; Timing Models             ; Final                                           ;
-; Total macrocells          ; 9 / 32 ( 28 % )                                 ;
-; Total pins                ; 30 / 34 ( 88 % )                                ;
+; Total macrocells          ; 30 / 32 ( 94 % )                                ;
+; Total pins                ; 32 / 34 ( 94 % )                                ;
 +---------------------------+-------------------------------------------------+
 
 
@@ -107,64 +106,66 @@ The pin-out file can be found in C:/Users/union/Documents/Projects/Speccy/double
 +------------------------------+------------------+
 ; Resource                     ; Usage            ;
 +------------------------------+------------------+
-; Logic cells                  ; 9 / 32 ( 28 % )  ;
-; Registers                    ; 5 / 32 ( 16 % )  ;
-; Number of pterms used        ; 17               ;
-; I/O pins                     ; 30 / 34 ( 88 % ) ;
+; Logic cells                  ; 30 / 32 ( 94 % ) ;
+; Registers                    ; 23 / 32 ( 72 % ) ;
+; Number of pterms used        ; 47               ;
+; I/O pins                     ; 32 / 34 ( 94 % ) ;
 ;     -- Clock pins            ; 1 / 2 ( 50 % )   ;
-;     -- Dedicated input pins  ; 0 / 2 ( 0 % )    ;
+;     -- Dedicated input pins  ; 1 / 2 ( 50 % )   ;
 ;                              ;                  ;
 ; Global signals               ; 1                ;
-; Shareable expanders          ; 1 / 32 ( 3 % )   ;
+; Shareable expanders          ; 0 / 32 ( 0 % )   ;
 ; Parallel expanders           ; 0 / 30 ( 0 % )   ;
-; Cells using turbo bit        ; 9 / 32 ( 28 % )  ;
-; Maximum fan-out              ; 6                ;
-; Highest non-global fan-out   ; 6                ;
-; Total fan-out                ; 50               ;
-; Average fan-out              ; 1.25             ;
+; Cells using turbo bit        ; 30 / 32 ( 94 % ) ;
+; Maximum fan-out              ; 13               ;
+; Highest non-global fan-out   ; 12               ;
+; Total fan-out                ; 169              ;
+; Average fan-out              ; 2.73             ;
 +------------------------------+------------------+
 
 
-+-----------------------------------------------------------------------------------------------------------------------------+
-; Input Pins                                                                                                                  ;
-+--------+-------+----------+-----+-----------------------+--------------------+--------+--------------+----------------------+
-; Name   ; Pin # ; I/O Bank ; LAB ; Combinational Fan-Out ; Registered Fan-Out ; Global ; I/O Standard ; Location assigned by ;
-+--------+-------+----------+-----+-----------------------+--------------------+--------+--------------+----------------------+
-; a0     ; 11    ; --       ; 1   ; 2                     ; 0                  ; no     ; 3.3-V LVTTL  ; User                 ;
-; a1     ; 9     ; --       ; 1   ; 4                     ; 0                  ; no     ; 3.3-V LVTTL  ; User                 ;
-; a14    ; 29    ; --       ; 2   ; 2                     ; 0                  ; no     ; 3.3-V LVTTL  ; User                 ;
-; a15    ; 31    ; --       ; 2   ; 4                     ; 0                  ; no     ; 3.3-V LVTTL  ; User                 ;
-; clk350 ; 43    ; --       ; --  ; 1                     ; 0                  ; yes    ; 3.3-V LVTTL  ; User                 ;
-; d7_alt ; 33    ; --       ; 2   ; 0                     ; 0                  ; no     ; 3.3-V LVTTL  ; User                 ;
-; d[0]   ; 34    ; --       ; 2   ; 1                     ; 0                  ; no     ; 3.3-V LVTTL  ; User                 ;
-; d[1]   ; 28    ; --       ; 2   ; 0                     ; 0                  ; no     ; 3.3-V LVTTL  ; User                 ;
-; d[2]   ; 37    ; --       ; 2   ; 0                     ; 0                  ; no     ; 3.3-V LVTTL  ; User                 ;
-; d[3]   ; 41    ; --       ; 2   ; 2                     ; 0                  ; no     ; 3.3-V LVTTL  ; User                 ;
-; d[4]   ; 5     ; --       ; 1   ; 2                     ; 0                  ; no     ; 3.3-V LVTTL  ; User                 ;
-; d[5]   ; 40    ; --       ; 2   ; 1                     ; 0                  ; no     ; 3.3-V LVTTL  ; User                 ;
-; d[6]   ; 39    ; --       ; 2   ; 1                     ; 0                  ; no     ; 3.3-V LVTTL  ; User                 ;
-; d[7]   ; 26    ; --       ; 2   ; 1                     ; 0                  ; no     ; 3.3-V LVTTL  ; User                 ;
-; iorq   ; 6     ; --       ; 1   ; 6                     ; 0                  ; no     ; 3.3-V LVTTL  ; User                 ;
-; m1     ; 8     ; --       ; 1   ; 2                     ; 0                  ; no     ; 3.3-V LVTTL  ; User                 ;
-; reset  ; 4     ; --       ; 1   ; 2                     ; 0                  ; no     ; 3.3-V LVTTL  ; User                 ;
-; wr     ; 12    ; --       ; 1   ; 4                     ; 0                  ; no     ; 3.3-V LVTTL  ; User                 ;
-+--------+-------+----------+-----+-----------------------+--------------------+--------+--------------+----------------------+
++--------------------------------------------------------------------------------------------------------------------------------+
+; Input Pins                                                                                                                     ;
++-----------+-------+----------+-----+-----------------------+--------------------+--------+--------------+----------------------+
+; Name      ; Pin # ; I/O Bank ; LAB ; Combinational Fan-Out ; Registered Fan-Out ; Global ; I/O Standard ; Location assigned by ;
++-----------+-------+----------+-----+-----------------------+--------------------+--------+--------------+----------------------+
+; a0        ; 11    ; --       ; 1   ; 2                     ; 0                  ; no     ; 3.3-V LVTTL  ; User                 ;
+; a1        ; 9     ; --       ; 1   ; 4                     ; 0                  ; no     ; 3.3-V LVTTL  ; User                 ;
+; a14       ; 29    ; --       ; 2   ; 3                     ; 0                  ; no     ; 3.3-V LVTTL  ; User                 ;
+; a15       ; 31    ; --       ; 2   ; 4                     ; 0                  ; no     ; 3.3-V LVTTL  ; User                 ;
+; a2        ; 44    ; --       ; --  ; 1                     ; 0                  ; no     ; 3.3-V LVTTL  ; User                 ;
+; cpu_clock ; 43    ; --       ; --  ; 13                    ; 0                  ; yes    ; 3.3-V LVTTL  ; User                 ;
+; d7_alt    ; 26    ; --       ; 2   ; 0                     ; 0                  ; no     ; 3.3-V LVTTL  ; User                 ;
+; d_0       ; 34    ; --       ; 2   ; 1                     ; 0                  ; no     ; 3.3-V LVTTL  ; User                 ;
+; d_3       ; 41    ; --       ; 2   ; 2                     ; 0                  ; no     ; 3.3-V LVTTL  ; User                 ;
+; d_4       ; 5     ; --       ; 1   ; 2                     ; 0                  ; no     ; 3.3-V LVTTL  ; User                 ;
+; d_5       ; 40    ; --       ; 2   ; 1                     ; 0                  ; no     ; 3.3-V LVTTL  ; User                 ;
+; d_6       ; 39    ; --       ; 2   ; 1                     ; 0                  ; no     ; 3.3-V LVTTL  ; User                 ;
+; d_7       ; 33    ; --       ; 2   ; 1                     ; 0                  ; no     ; 3.3-V LVTTL  ; User                 ;
+; int       ; 37    ; --       ; 2   ; 1                     ; 0                  ; no     ; 3.3-V LVTTL  ; User                 ;
+; iorq      ; 6     ; --       ; 1   ; 7                     ; 0                  ; no     ; 3.3-V LVTTL  ; User                 ;
+; m1        ; 8     ; --       ; 1   ; 3                     ; 0                  ; no     ; 3.3-V LVTTL  ; User                 ;
+; reset     ; 4     ; --       ; 1   ; 1                     ; 0                  ; no     ; 3.3-V LVTTL  ; User                 ;
+; wr        ; 12    ; --       ; 1   ; 6                     ; 0                  ; no     ; 3.3-V LVTTL  ; User                 ;
++-----------+-------+----------+-----+-----------------------+--------------------+--------+--------------+----------------------+
 
 
-+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Output Pins                                                                                                                                                                                 ;
-+---------+-------+----------+-----+-----------------+----------------+------------+---------------+--------------+----------------------+-------+----------------------+---------------------+
-; Name    ; Pin # ; I/O Bank ; LAB ; Output Register ; Slow Slew Rate ; Open Drain ; TRI Primitive ; I/O Standard ; Location assigned by ; Load  ; Output Enable Source ; Output Enable Group ;
-+---------+-------+----------+-----+-----------------+----------------+------------+---------------+--------------+----------------------+-------+----------------------+---------------------+
-; a8[0]   ; 19    ; --       ; 1   ; no              ; no             ; no         ; no            ; 3.3-V LVTTL  ; User                 ; 10 pF ; -                    ; -                   ;
-; a8[1]   ; 20    ; --       ; 1   ; no              ; no             ; no         ; no            ; 3.3-V LVTTL  ; User                 ; 10 pF ; -                    ; -                   ;
-; bc1     ; 16    ; --       ; 1   ; no              ; no             ; no         ; no            ; 3.3-V LVTTL  ; User                 ; 10 pF ; -                    ; -                   ;
-; bdir    ; 14    ; --       ; 1   ; no              ; no             ; no         ; no            ; 3.3-V LVTTL  ; User                 ; 10 pF ; -                    ; -                   ;
-; beeper  ; 21    ; --       ; 1   ; no              ; no             ; no         ; no            ; 3.3-V LVTTL  ; User                 ; 10 pF ; -                    ; -                   ;
-; clk175  ; 18    ; --       ; 1   ; no              ; no             ; no         ; no            ; 3.3-V LVTTL  ; User                 ; 10 pF ; -                    ; -                   ;
-; ioge_c  ; 27    ; --       ; 2   ; no              ; no             ; no         ; no            ; 3.3-V LVTTL  ; User                 ; 10 pF ; -                    ; -                   ;
-; tapeout ; 24    ; --       ; 2   ; no              ; no             ; no         ; no            ; 3.3-V LVTTL  ; User                 ; 10 pF ; -                    ; -                   ;
-+---------+-------+----------+-----+-----------------+----------------+------------+---------------+--------------+----------------------+-------+----------------------+---------------------+
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Output Pins                                                                                                                                                                                  ;
++----------+-------+----------+-----+-----------------+----------------+------------+---------------+--------------+----------------------+-------+----------------------+---------------------+
+; Name     ; Pin # ; I/O Bank ; LAB ; Output Register ; Slow Slew Rate ; Open Drain ; TRI Primitive ; I/O Standard ; Location assigned by ; Load  ; Output Enable Source ; Output Enable Group ;
++----------+-------+----------+-----+-----------------+----------------+------------+---------------+--------------+----------------------+-------+----------------------+---------------------+
+; bc1      ; 16    ; --       ; 1   ; no              ; no             ; no         ; no            ; 3.3-V LVTTL  ; User                 ; 10 pF ; -                    ; -                   ;
+; bdir     ; 14    ; --       ; 1   ; no              ; no             ; no         ; no            ; 3.3-V LVTTL  ; User                 ; 10 pF ; -                    ; -                   ;
+; beeper   ; 21    ; --       ; 1   ; no              ; no             ; no         ; no            ; 3.3-V LVTTL  ; User                 ; 10 pF ; -                    ; -                   ;
+; covox    ; 25    ; --       ; 2   ; no              ; no             ; no         ; no            ; 3.3-V LVTTL  ; User                 ; 10 pF ; -                    ; -                   ;
+; ioge_c   ; 27    ; --       ; 2   ; no              ; no             ; no         ; no            ; 3.3-V LVTTL  ; User                 ; 10 pF ; -                    ; -                   ;
+; tapeout  ; 24    ; --       ; 2   ; no              ; no             ; no         ; no            ; 3.3-V LVTTL  ; User                 ; 10 pF ; -                    ; -                   ;
+; test     ; 28    ; --       ; 2   ; no              ; no             ; no         ; no            ; 3.3-V LVTTL  ; User                 ; 10 pF ; -                    ; -                   ;
+; ym_0     ; 19    ; --       ; 1   ; no              ; no             ; no         ; no            ; 3.3-V LVTTL  ; User                 ; 10 pF ; -                    ; -                   ;
+; ym_1     ; 20    ; --       ; 1   ; no              ; no             ; no         ; no            ; 3.3-V LVTTL  ; User                 ; 10 pF ; -                    ; -                   ;
+; ym_clock ; 18    ; --       ; 1   ; no              ; no             ; no         ; no            ; 3.3-V LVTTL  ; User                 ; 10 pF ; -                    ; -                   ;
++----------+-------+----------+-----+-----------------+----------------+------------+---------------+--------------+----------------------+-------+----------------------+---------------------+
 
 
 +-------------------------------------------------------------------------------------------------------+
@@ -176,7 +177,7 @@ The pin-out file can be found in C:/Users/union/Documents/Projects/Speccy/double
 ; 2        ; 1          ; --       ; GND+           ;        ;              ;         ;                 ;
 ; 3        ; 2          ; --       ; VCCINT         ; power  ;              ; 3.3V    ;                 ;
 ; 4        ; 3          ; --       ; reset          ; input  ; 3.3-V LVTTL  ;         ; Y               ;
-; 5        ; 4          ; --       ; d[4]           ; input  ; 3.3-V LVTTL  ;         ; Y               ;
+; 5        ; 4          ; --       ; d_4            ; input  ; 3.3-V LVTTL  ;         ; Y               ;
 ; 6        ; 5          ; --       ; iorq           ; input  ; 3.3-V LVTTL  ;         ; Y               ;
 ; 7        ; 6          ; --       ; TDI            ; input  ; 3.3-V LVTTL  ;         ; N               ;
 ; 8        ; 7          ; --       ; m1             ; input  ; 3.3-V LVTTL  ;         ; Y               ;
@@ -189,33 +190,33 @@ The pin-out file can be found in C:/Users/union/Documents/Projects/Speccy/double
 ; 15       ; 14         ; --       ; VCCIO          ; power  ;              ; 3.3V    ;                 ;
 ; 16       ; 15         ; --       ; bc1            ; output ; 3.3-V LVTTL  ;         ; Y               ;
 ; 17       ; 16         ; --       ; GND            ; gnd    ;              ;         ;                 ;
-; 18       ; 17         ; --       ; clk175         ; output ; 3.3-V LVTTL  ;         ; Y               ;
-; 19       ; 18         ; --       ; a8[0]          ; output ; 3.3-V LVTTL  ;         ; Y               ;
-; 20       ; 19         ; --       ; a8[1]          ; output ; 3.3-V LVTTL  ;         ; Y               ;
+; 18       ; 17         ; --       ; ym_clock       ; output ; 3.3-V LVTTL  ;         ; Y               ;
+; 19       ; 18         ; --       ; ym_0           ; output ; 3.3-V LVTTL  ;         ; Y               ;
+; 20       ; 19         ; --       ; ym_1           ; output ; 3.3-V LVTTL  ;         ; Y               ;
 ; 21       ; 20         ; --       ; beeper         ; output ; 3.3-V LVTTL  ;         ; Y               ;
 ; 22       ; 21         ; --       ; GND            ; gnd    ;              ;         ;                 ;
 ; 23       ; 22         ; --       ; VCCINT         ; power  ;              ; 3.3V    ;                 ;
 ; 24       ; 23         ; --       ; tapeout        ; output ; 3.3-V LVTTL  ;         ; Y               ;
-; 25       ; 24         ; --       ; RESERVED       ;        ;              ;         ;                 ;
-; 26       ; 25         ; --       ; d[7]           ; input  ; 3.3-V LVTTL  ;         ; Y               ;
+; 25       ; 24         ; --       ; covox          ; output ; 3.3-V LVTTL  ;         ; Y               ;
+; 26       ; 25         ; --       ; d7_alt         ; input  ; 3.3-V LVTTL  ;         ; Y               ;
 ; 27       ; 26         ; --       ; ioge_c         ; output ; 3.3-V LVTTL  ;         ; Y               ;
-; 28       ; 27         ; --       ; d[1]           ; input  ; 3.3-V LVTTL  ;         ; Y               ;
+; 28       ; 27         ; --       ; test           ; output ; 3.3-V LVTTL  ;         ; Y               ;
 ; 29       ; 28         ; --       ; a14            ; input  ; 3.3-V LVTTL  ;         ; Y               ;
 ; 30       ; 29         ; --       ; GND            ; gnd    ;              ;         ;                 ;
 ; 31       ; 30         ; --       ; a15            ; input  ; 3.3-V LVTTL  ;         ; Y               ;
 ; 32       ; 31         ; --       ; TCK            ; input  ; 3.3-V LVTTL  ;         ; N               ;
-; 33       ; 32         ; --       ; d7_alt         ; input  ; 3.3-V LVTTL  ;         ; Y               ;
-; 34       ; 33         ; --       ; d[0]           ; input  ; 3.3-V LVTTL  ;         ; Y               ;
+; 33       ; 32         ; --       ; d_7            ; input  ; 3.3-V LVTTL  ;         ; Y               ;
+; 34       ; 33         ; --       ; d_0            ; input  ; 3.3-V LVTTL  ;         ; Y               ;
 ; 35       ; 34         ; --       ; VCCIO          ; power  ;              ; 3.3V    ;                 ;
 ; 36       ; 35         ; --       ; GND            ; gnd    ;              ;         ;                 ;
-; 37       ; 36         ; --       ; d[2]           ; input  ; 3.3-V LVTTL  ;         ; Y               ;
+; 37       ; 36         ; --       ; int            ; input  ; 3.3-V LVTTL  ;         ; Y               ;
 ; 38       ; 37         ; --       ; TDO            ; output ; 3.3-V LVTTL  ;         ; N               ;
-; 39       ; 38         ; --       ; d[6]           ; input  ; 3.3-V LVTTL  ;         ; Y               ;
-; 40       ; 39         ; --       ; d[5]           ; input  ; 3.3-V LVTTL  ;         ; Y               ;
-; 41       ; 40         ; --       ; d[3]           ; input  ; 3.3-V LVTTL  ;         ; Y               ;
+; 39       ; 38         ; --       ; d_6            ; input  ; 3.3-V LVTTL  ;         ; Y               ;
+; 40       ; 39         ; --       ; d_5            ; input  ; 3.3-V LVTTL  ;         ; Y               ;
+; 41       ; 40         ; --       ; d_3            ; input  ; 3.3-V LVTTL  ;         ; Y               ;
 ; 42       ; 41         ; --       ; GND            ; gnd    ;              ;         ;                 ;
-; 43       ; 42         ; --       ; clk350         ; input  ; 3.3-V LVTTL  ;         ; Y               ;
-; 44       ; 43         ; --       ; GND+           ;        ;              ;         ;                 ;
+; 43       ; 42         ; --       ; cpu_clock      ; input  ; 3.3-V LVTTL  ;         ; Y               ;
+; 44       ; 43         ; --       ; a2             ; input  ; 3.3-V LVTTL  ;         ; Y               ;
 +----------+------------+----------+----------------+--------+--------------+---------+-----------------+
 Note: Pin directions (input, output or bidir) are based on device operating in user mode.
 
@@ -225,17 +226,18 @@ Note: Pin directions (input, output or bidir) are based on device operating in u
 +--------------+------------+----------------------+-------------------+-------------------+-------+
 ; I/O Standard ; Input Vref ; Dedicated Input Pins ; Pins in I/O Bank1 ; Pins in I/O Bank2 ; Total ;
 +--------------+------------+----------------------+-------------------+-------------------+-------+
-; 3.3-V LVTTL  ; -          ; 1                    ; 0                 ; 0                 ; 1     ;
+; 3.3-V LVTTL  ; -          ; 2                    ; 0                 ; 0                 ; 2     ;
 +--------------+------------+----------------------+-------------------+-------------------+-------+
 
 
-+----------------------------------------------------------------------+
-; Dedicated Inputs I/O                                                 ;
-+--------+-------+-------+-------+--------------+------------+---------+
-; Name   ; Pin # ; Type  ; VCCIO ; I/O Standard ; Input Vref ; Current ;
-+--------+-------+-------+-------+--------------+------------+---------+
-; clk350 ; 43    ; Input ; --    ; 3.3-V LVTTL  ; -          ; 0 mA    ;
-+--------+-------+-------+-------+--------------+------------+---------+
++-------------------------------------------------------------------------+
+; Dedicated Inputs I/O                                                    ;
++-----------+-------+-------+-------+--------------+------------+---------+
+; Name      ; Pin # ; Type  ; VCCIO ; I/O Standard ; Input Vref ; Current ;
++-----------+-------+-------+-------+--------------+------------+---------+
+; a2        ; 44    ; Input ; --    ; 3.3-V LVTTL  ; -          ; 0 mA    ;
+; cpu_clock ; 43    ; Input ; --    ; 3.3-V LVTTL  ; -          ; 0 mA    ;
++-----------+-------+-------+-------+--------------+------------+---------+
 
 
 +-----------------------------------------------+
@@ -251,66 +253,102 @@ Note: Pin directions (input, output or bidir) are based on device operating in u
 Note: User assignments will override these defaults. The user specified values are listed in the Output Pins and Bidir Pins tables.
 
 
-+------------------------------------------------------------------------------------------------+
-; Fitter Resource Utilization by Entity                                                          ;
-+----------------------------+------------+------+--------------------------------+--------------+
-; Compilation Hierarchy Node ; Macrocells ; Pins ; Full Hierarchy Name            ; Library Name ;
-+----------------------------+------------+------+--------------------------------+--------------+
-; |EPM3032_YM2149x2          ; 9          ; 30   ; |EPM3032_YM2149x2              ; work         ;
-;    |ttl_7474:tm2|          ; 3          ; 0    ; |EPM3032_YM2149x2|ttl_7474:tm2 ; work         ;
-+----------------------------+------------+------+--------------------------------+--------------+
++-------------------------------------------------------------------------------------------------------------------------+
+; Fitter Resource Utilization by Entity                                                                                   ;
++------------------------------------+------------+------+-------------------------------------------------+--------------+
+; Compilation Hierarchy Node         ; Macrocells ; Pins ; Full Hierarchy Name                             ; Library Name ;
++------------------------------------+------------+------+-------------------------------------------------+--------------+
+; |EPM3032_YM2149x2                  ; 30         ; 32   ; |EPM3032_YM2149x2                               ; work         ;
+;    |lpm_counter:clk_cnt_rtl_0|     ; 6          ; 0    ; |EPM3032_YM2149x2|lpm_counter:clk_cnt_rtl_0     ; work         ;
+;    |lpm_counter:clk_div_cnt_rtl_0| ; 12         ; 0    ; |EPM3032_YM2149x2|lpm_counter:clk_div_cnt_rtl_0 ; work         ;
++------------------------------------+------------+------+-------------------------------------------------+--------------+
 
 
-+----------------------------------------------------------------------------------------+
-; Control Signals                                                                        ;
-+--------+----------+---------+-------+--------+----------------------+------------------+
-; Name   ; Location ; Fan-Out ; Usage ; Global ; Global Resource Used ; Global Line Name ;
-+--------+----------+---------+-------+--------+----------------------+------------------+
-; clk350 ; PIN_43   ; 1       ; Clock ; yes    ; On                   ; --               ;
-; comb~2 ; SEXP6    ; 2       ; Clock ; no     ; --                   ; --               ;
-; wr     ; PIN_12   ; 4       ; Clock ; no     ; --                   ; --               ;
-+--------+----------+---------+-------+--------+----------------------+------------------+
++-------------------------------------------------------------------------------------------------------------------------+
+; Control Signals                                                                                                         ;
++----------------------------------------+----------+---------+--------+--------+----------------------+------------------+
+; Name                                   ; Location ; Fan-Out ; Usage  ; Global ; Global Resource Used ; Global Line Name ;
++----------------------------------------+----------+---------+--------+--------+----------------------+------------------+
+; a1                                     ; PIN_9    ; 4       ; Clock  ; no     ; --                   ; --               ;
+; a14                                    ; PIN_29   ; 3       ; Clock  ; no     ; --                   ; --               ;
+; a15                                    ; PIN_31   ; 4       ; Clock  ; no     ; --                   ; --               ;
+; clk_check7                             ; LC19     ; 7       ; Clock  ; no     ; --                   ; --               ;
+; cpu_clock                              ; PIN_43   ; 13      ; Clock  ; yes    ; On                   ; --               ;
+; d_3                                    ; PIN_41   ; 2       ; Clock  ; no     ; --                   ; --               ;
+; d_4                                    ; PIN_5    ; 2       ; Clock  ; no     ; --                   ; --               ;
+; d_5                                    ; PIN_40   ; 1       ; Clock  ; no     ; --                   ; --               ;
+; d_6                                    ; PIN_39   ; 1       ; Clock  ; no     ; --                   ; --               ;
+; d_7                                    ; PIN_33   ; 1       ; Clock  ; no     ; --                   ; --               ;
+; int                                    ; PIN_37   ; 1       ; Clock  ; no     ; --                   ; --               ;
+; iorq                                   ; PIN_6    ; 7       ; Clock  ; no     ; --                   ; --               ;
+; lpm_counter:clk_div_cnt_rtl_0|dffs[11] ; LC2      ; 6       ; Clock  ; no     ; --                   ; --               ;
+; m1                                     ; PIN_8    ; 3       ; Clock  ; no     ; --                   ; --               ;
+; reset                                  ; PIN_4    ; 1       ; Preset ; no     ; --                   ; --               ;
+; wr                                     ; PIN_12   ; 6       ; Clock  ; no     ; --                   ; --               ;
++----------------------------------------+----------+---------+--------+--------+----------------------+------------------+
 
 
-+-----------------------------------------------------------------------+
-; Global & Other Fast Signals                                           ;
-+--------+----------+---------+----------------------+------------------+
-; Name   ; Location ; Fan-Out ; Global Resource Used ; Global Line Name ;
-+--------+----------+---------+----------------------+------------------+
-; clk350 ; PIN_43   ; 1       ; On                   ; --               ;
-+--------+----------+---------+----------------------+------------------+
++--------------------------------------------------------------------------+
+; Global & Other Fast Signals                                              ;
++-----------+----------+---------+----------------------+------------------+
+; Name      ; Location ; Fan-Out ; Global Resource Used ; Global Line Name ;
++-----------+----------+---------+----------------------+------------------+
+; cpu_clock ; PIN_43   ; 13      ; On                   ; --               ;
++-----------+----------+---------+----------------------+------------------+
 
 
-+-----------------------------------------------+
-; Non-Global High Fan-Out Signals               ;
-+-------------------------------------+---------+
-; Name                                ; Fan-Out ;
-+-------------------------------------+---------+
-; iorq                                ; 6       ;
-; wr                                  ; 4       ;
-; a15                                 ; 4       ;
-; a1                                  ; 4       ;
-; d[4]                                ; 2       ;
-; d[3]                                ; 2       ;
-; reset                               ; 2       ;
-; m1                                  ; 2       ;
-; a0                                  ; 2       ;
-; a14                                 ; 2       ;
-; ttl_7474:tm2|Q_current[0]           ; 2       ;
-; comb~2                              ; 2       ;
-; ttl_7474:tm2|Preset_bar_previous[0] ; 2       ;
-; pre_beeper                          ; 2       ;
-; pre_tapeout                         ; 2       ;
-; d[7]                                ; 1       ;
-; d[6]                                ; 1       ;
-; d[5]                                ; 1       ;
-; d[0]                                ; 1       ;
-; ttl_7474:tm2|Q_current[0]~6         ; 1       ;
-; clk_div_cnt                         ; 1       ;
-; bdir~2                              ; 1       ;
-; bc1~2                               ; 1       ;
-; ssg~3                               ; 1       ;
-+-------------------------------------+---------+
++--------------------------------------------------+
+; Non-Global High Fan-Out Signals                  ;
++----------------------------------------+---------+
+; Name                                   ; Fan-Out ;
++----------------------------------------+---------+
+; lpm_counter:clk_div_cnt_rtl_0|dffs[0]  ; 12      ;
+; lpm_counter:clk_div_cnt_rtl_0|dffs[1]  ; 10      ;
+; lpm_counter:clk_div_cnt_rtl_0|dffs[2]  ; 9       ;
+; lpm_counter:clk_div_cnt_rtl_0|dffs[3]  ; 8       ;
+; iorq                                   ; 7       ;
+; lpm_counter:clk_div_cnt_rtl_0|dffs[4]  ; 7       ;
+; clk_check7                             ; 7       ;
+; wr                                     ; 6       ;
+; lpm_counter:clk_cnt_rtl_0|dffs[0]      ; 6       ;
+; lpm_counter:clk_div_cnt_rtl_0|dffs[11] ; 6       ;
+; lpm_counter:clk_div_cnt_rtl_0|dffs[5]  ; 6       ;
+; lpm_counter:clk_cnt_rtl_0|dffs[1]      ; 5       ;
+; lpm_counter:clk_div_cnt_rtl_0|dffs[6]  ; 5       ;
+; a15                                    ; 4       ;
+; a1                                     ; 4       ;
+; lpm_counter:clk_cnt_rtl_0|dffs[2]      ; 4       ;
+; lpm_counter:clk_div_cnt_rtl_0|dffs[7]  ; 4       ;
+; m1                                     ; 3       ;
+; a14                                    ; 3       ;
+; lpm_counter:clk_cnt_rtl_0|dffs[3]      ; 3       ;
+; lpm_counter:clk_div_cnt_rtl_0|dffs[8]  ; 3       ;
+; d_4                                    ; 2       ;
+; d_3                                    ; 2       ;
+; a0                                     ; 2       ;
+; lpm_counter:clk_cnt_rtl_0|dffs[5]      ; 2       ;
+; lpm_counter:clk_cnt_rtl_0|dffs[4]      ; 2       ;
+; lpm_counter:clk_div_cnt_rtl_0|dffs[9]  ; 2       ;
+; pre_beeper                             ; 2       ;
+; YM_select                              ; 2       ;
+; pre_tapeout                            ; 2       ;
+; d_7                                    ; 1       ;
+; d_6                                    ; 1       ;
+; d_5                                    ; 1       ;
+; d_0                                    ; 1       ;
+; reset                                  ; 1       ;
+; int                                    ; 1       ;
+; a2                                     ; 1       ;
+; ~GND~0                                 ; 1       ;
+; ym_clock~5                             ; 1       ;
+; clk_detect_70m                         ; 1       ;
+; lpm_counter:clk_div_cnt_rtl_0|dffs[10] ; 1       ;
+; YM_select~1                            ; 1       ;
+; ioge_c~1                               ; 1       ;
+; bc1~3                                  ; 1       ;
+; bdir~3                                 ; 1       ;
+; covox~1                                ; 1       ;
++----------------------------------------+---------+
 
 
 +------------------------------------------------+
@@ -319,51 +357,71 @@ Note: User assignments will override these defaults. The user specified values a
 ; Other Routing Resource Type ; Usage            ;
 +-----------------------------+------------------+
 ; Output enables              ; 0 / 6 ( 0 % )    ;
-; PIA buffers                 ; 24 / 72 ( 33 % ) ;
+; PIA buffers                 ; 49 / 72 ( 68 % ) ;
 +-----------------------------+------------------+
 
 
-+----------------------------------------------------------------------+
-; LAB Macrocells                                                       ;
-+----------------------------------------+-----------------------------+
-; Number of Macrocells  (Average = 4.50) ; Number of LABs  (Total = 2) ;
-+----------------------------------------+-----------------------------+
-; 0                                      ; 0                           ;
-; 1                                      ; 0                           ;
-; 2                                      ; 1                           ;
-; 3                                      ; 0                           ;
-; 4                                      ; 0                           ;
-; 5                                      ; 0                           ;
-; 6                                      ; 0                           ;
-; 7                                      ; 1                           ;
-+----------------------------------------+-----------------------------+
++-----------------------------------------------------------------------+
+; LAB Macrocells                                                        ;
++-----------------------------------------+-----------------------------+
+; Number of Macrocells  (Average = 15.00) ; Number of LABs  (Total = 2) ;
++-----------------------------------------+-----------------------------+
+; 0                                       ; 0                           ;
+; 1                                       ; 0                           ;
+; 2                                       ; 0                           ;
+; 3                                       ; 0                           ;
+; 4                                       ; 0                           ;
+; 5                                       ; 0                           ;
+; 6                                       ; 0                           ;
+; 7                                       ; 0                           ;
+; 8                                       ; 0                           ;
+; 9                                       ; 0                           ;
+; 10                                      ; 0                           ;
+; 11                                      ; 0                           ;
+; 12                                      ; 0                           ;
+; 13                                      ; 0                           ;
+; 14                                      ; 1                           ;
+; 15                                      ; 0                           ;
+; 16                                      ; 1                           ;
++-----------------------------------------+-----------------------------+
 
 
-+-------------------------------------------------------------------------------+
-; Shareable Expander                                                            ;
-+-------------------------------------------------+-----------------------------+
-; Number of shareable expanders  (Average = 0.50) ; Number of LABs  (Total = 1) ;
-+-------------------------------------------------+-----------------------------+
-; 0                                               ; 1                           ;
-; 1                                               ; 1                           ;
-+-------------------------------------------------+-----------------------------+
-
-
-+----------------------------------------------------------------------------------------------------------------------------------------------+
-; Logic Cell Interconnection                                                                                                                   ;
-+-----+------------+----------------------------------------------------------+----------------------------------------------------------------+
-; LAB ; Logic Cell ; Input                                                    ; Output                                                         ;
-+-----+------------+----------------------------------------------------------+----------------------------------------------------------------+
-;  A  ; LC11       ; a1, a15, iorq, a14, m1                                   ; bc1                                                            ;
-;  A  ; LC10       ; a1, a15, iorq, wr                                        ; bdir                                                           ;
-;  A  ; LC13       ; clk350                                                   ; clk175                                                         ;
-;  A  ; LC16       ; d[4], a0, iorq, pre_beeper, wr                           ; pre_beeper, beeper                                             ;
-;  A  ; LC6        ; reset, ttl_7474:tm2|Preset_bar_previous[0], comb~2       ; ttl_7474:tm2|Preset_bar_previous[0], ttl_7474:tm2|Q_current[0] ;
-;  A  ; LC15       ; reset, ttl_7474:tm2|Preset_bar_previous[0], d[0], comb~2 ; a8[1], ttl_7474:tm2|Q_current[0]~6                             ;
-;  A  ; LC14       ; ttl_7474:tm2|Q_current[0]                                ; a8[0]                                                          ;
-;  B  ; LC29       ; a1, a15, iorq                                            ; ioge_c                                                         ;
-;  B  ; LC32       ; d[3], a0, iorq, pre_tapeout, wr                          ; pre_tapeout, tapeout                                           ;
-+-----+------------+----------------------------------------------------------+----------------------------------------------------------------+
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Logic Cell Interconnection                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             ;
++-----+------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; LAB ; Logic Cell ; Input                                                                                                                                                                                                                                                                                                                                                                                                                                                   ; Output                                                                                                                                                                                                                                                                                                                                                                                                                                                    ;
++-----+------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+;  A  ; LC10       ; wr, a1, a15, iorq                                                                                                                                                                                                                                                                                                                                                                                                                                       ; bdir                                                                                                                                                                                                                                                                                                                                                                                                                                                      ;
+;  A  ; LC11       ; a14, m1, a1, a15, iorq                                                                                                                                                                                                                                                                                                                                                                                                                                  ; bc1                                                                                                                                                                                                                                                                                                                                                                                                                                                       ;
+;  A  ; LC14       ; d_0, wr, a1, a15, iorq, d_3, d_4, d_5, d_6, d_7, a14, m1, reset                                                                                                                                                                                                                                                                                                                                                                                         ; ym_0, YM_select~1                                                                                                                                                                                                                                                                                                                                                                                                                                         ;
+;  A  ; LC16       ; d_4, a0, iorq, pre_beeper, wr                                                                                                                                                                                                                                                                                                                                                                                                                           ; pre_beeper, beeper                                                                                                                                                                                                                                                                                                                                                                                                                                        ;
+;  A  ; LC15       ; YM_select                                                                                                                                                                                                                                                                                                                                                                                                                                               ; ym_1                                                                                                                                                                                                                                                                                                                                                                                                                                                      ;
+;  A  ; LC4        ; cpu_clock, lpm_counter:clk_div_cnt_rtl_0|dffs[1], lpm_counter:clk_div_cnt_rtl_0|dffs[0]                                                                                                                                                                                                                                                                                                                                                                 ; lpm_counter:clk_div_cnt_rtl_0|dffs[3], lpm_counter:clk_div_cnt_rtl_0|dffs[4], lpm_counter:clk_div_cnt_rtl_0|dffs[5], lpm_counter:clk_div_cnt_rtl_0|dffs[6], lpm_counter:clk_div_cnt_rtl_0|dffs[7], lpm_counter:clk_div_cnt_rtl_0|dffs[8], lpm_counter:clk_div_cnt_rtl_0|dffs[9], lpm_counter:clk_div_cnt_rtl_0|dffs[10], lpm_counter:clk_div_cnt_rtl_0|dffs[11]                                                                                           ;
+;  A  ; LC6        ; cpu_clock, lpm_counter:clk_div_cnt_rtl_0|dffs[1], lpm_counter:clk_div_cnt_rtl_0|dffs[0], lpm_counter:clk_div_cnt_rtl_0|dffs[2]                                                                                                                                                                                                                                                                                                                          ; lpm_counter:clk_div_cnt_rtl_0|dffs[4], lpm_counter:clk_div_cnt_rtl_0|dffs[5], lpm_counter:clk_div_cnt_rtl_0|dffs[6], lpm_counter:clk_div_cnt_rtl_0|dffs[7], lpm_counter:clk_div_cnt_rtl_0|dffs[8], lpm_counter:clk_div_cnt_rtl_0|dffs[9], lpm_counter:clk_div_cnt_rtl_0|dffs[10], lpm_counter:clk_div_cnt_rtl_0|dffs[11]                                                                                                                                  ;
+;  A  ; LC8        ; cpu_clock, lpm_counter:clk_div_cnt_rtl_0|dffs[1], lpm_counter:clk_div_cnt_rtl_0|dffs[0], lpm_counter:clk_div_cnt_rtl_0|dffs[2], lpm_counter:clk_div_cnt_rtl_0|dffs[3]                                                                                                                                                                                                                                                                                   ; lpm_counter:clk_div_cnt_rtl_0|dffs[5], lpm_counter:clk_div_cnt_rtl_0|dffs[6], lpm_counter:clk_div_cnt_rtl_0|dffs[7], lpm_counter:clk_div_cnt_rtl_0|dffs[8], lpm_counter:clk_div_cnt_rtl_0|dffs[9], lpm_counter:clk_div_cnt_rtl_0|dffs[10], lpm_counter:clk_div_cnt_rtl_0|dffs[11]                                                                                                                                                                         ;
+;  A  ; LC12       ; cpu_clock, lpm_counter:clk_div_cnt_rtl_0|dffs[1], lpm_counter:clk_div_cnt_rtl_0|dffs[0], lpm_counter:clk_div_cnt_rtl_0|dffs[2], lpm_counter:clk_div_cnt_rtl_0|dffs[3], lpm_counter:clk_div_cnt_rtl_0|dffs[4]                                                                                                                                                                                                                                            ; lpm_counter:clk_div_cnt_rtl_0|dffs[6], lpm_counter:clk_div_cnt_rtl_0|dffs[7], lpm_counter:clk_div_cnt_rtl_0|dffs[8], lpm_counter:clk_div_cnt_rtl_0|dffs[9], lpm_counter:clk_div_cnt_rtl_0|dffs[10], lpm_counter:clk_div_cnt_rtl_0|dffs[11]                                                                                                                                                                                                                ;
+;  A  ; LC7        ; cpu_clock, lpm_counter:clk_div_cnt_rtl_0|dffs[1], lpm_counter:clk_div_cnt_rtl_0|dffs[0], lpm_counter:clk_div_cnt_rtl_0|dffs[2], lpm_counter:clk_div_cnt_rtl_0|dffs[3], lpm_counter:clk_div_cnt_rtl_0|dffs[4], lpm_counter:clk_div_cnt_rtl_0|dffs[5]                                                                                                                                                                                                     ; lpm_counter:clk_div_cnt_rtl_0|dffs[7], lpm_counter:clk_div_cnt_rtl_0|dffs[8], lpm_counter:clk_div_cnt_rtl_0|dffs[9], lpm_counter:clk_div_cnt_rtl_0|dffs[10], lpm_counter:clk_div_cnt_rtl_0|dffs[11]                                                                                                                                                                                                                                                       ;
+;  A  ; LC5        ; cpu_clock, lpm_counter:clk_div_cnt_rtl_0|dffs[1], lpm_counter:clk_div_cnt_rtl_0|dffs[0], lpm_counter:clk_div_cnt_rtl_0|dffs[2], lpm_counter:clk_div_cnt_rtl_0|dffs[3], lpm_counter:clk_div_cnt_rtl_0|dffs[4], lpm_counter:clk_div_cnt_rtl_0|dffs[5], lpm_counter:clk_div_cnt_rtl_0|dffs[6]                                                                                                                                                              ; lpm_counter:clk_div_cnt_rtl_0|dffs[8], lpm_counter:clk_div_cnt_rtl_0|dffs[9], lpm_counter:clk_div_cnt_rtl_0|dffs[10], lpm_counter:clk_div_cnt_rtl_0|dffs[11]                                                                                                                                                                                                                                                                                              ;
+;  A  ; LC1        ; cpu_clock, lpm_counter:clk_div_cnt_rtl_0|dffs[1], lpm_counter:clk_div_cnt_rtl_0|dffs[0], lpm_counter:clk_div_cnt_rtl_0|dffs[2], lpm_counter:clk_div_cnt_rtl_0|dffs[3], lpm_counter:clk_div_cnt_rtl_0|dffs[4], lpm_counter:clk_div_cnt_rtl_0|dffs[5], lpm_counter:clk_div_cnt_rtl_0|dffs[6], lpm_counter:clk_div_cnt_rtl_0|dffs[7]                                                                                                                       ; lpm_counter:clk_div_cnt_rtl_0|dffs[9], lpm_counter:clk_div_cnt_rtl_0|dffs[10], lpm_counter:clk_div_cnt_rtl_0|dffs[11]                                                                                                                                                                                                                                                                                                                                     ;
+;  A  ; LC9        ; cpu_clock, lpm_counter:clk_div_cnt_rtl_0|dffs[1], lpm_counter:clk_div_cnt_rtl_0|dffs[0], lpm_counter:clk_div_cnt_rtl_0|dffs[2], lpm_counter:clk_div_cnt_rtl_0|dffs[3], lpm_counter:clk_div_cnt_rtl_0|dffs[4], lpm_counter:clk_div_cnt_rtl_0|dffs[5], lpm_counter:clk_div_cnt_rtl_0|dffs[6], lpm_counter:clk_div_cnt_rtl_0|dffs[7], lpm_counter:clk_div_cnt_rtl_0|dffs[8]                                                                                ; lpm_counter:clk_div_cnt_rtl_0|dffs[10], lpm_counter:clk_div_cnt_rtl_0|dffs[11]                                                                                                                                                                                                                                                                                                                                                                            ;
+;  A  ; LC3        ; cpu_clock, lpm_counter:clk_div_cnt_rtl_0|dffs[1], lpm_counter:clk_div_cnt_rtl_0|dffs[0], lpm_counter:clk_div_cnt_rtl_0|dffs[2], lpm_counter:clk_div_cnt_rtl_0|dffs[3], lpm_counter:clk_div_cnt_rtl_0|dffs[4], lpm_counter:clk_div_cnt_rtl_0|dffs[5], lpm_counter:clk_div_cnt_rtl_0|dffs[6], lpm_counter:clk_div_cnt_rtl_0|dffs[7], lpm_counter:clk_div_cnt_rtl_0|dffs[8], lpm_counter:clk_div_cnt_rtl_0|dffs[9]                                         ; lpm_counter:clk_div_cnt_rtl_0|dffs[11]                                                                                                                                                                                                                                                                                                                                                                                                                    ;
+;  A  ; LC2        ; cpu_clock, lpm_counter:clk_div_cnt_rtl_0|dffs[1], lpm_counter:clk_div_cnt_rtl_0|dffs[0], lpm_counter:clk_div_cnt_rtl_0|dffs[2], lpm_counter:clk_div_cnt_rtl_0|dffs[3], lpm_counter:clk_div_cnt_rtl_0|dffs[4], lpm_counter:clk_div_cnt_rtl_0|dffs[5], lpm_counter:clk_div_cnt_rtl_0|dffs[6], lpm_counter:clk_div_cnt_rtl_0|dffs[7], lpm_counter:clk_div_cnt_rtl_0|dffs[8], lpm_counter:clk_div_cnt_rtl_0|dffs[9], lpm_counter:clk_div_cnt_rtl_0|dffs[10] ; lpm_counter:clk_cnt_rtl_0|dffs[0], lpm_counter:clk_cnt_rtl_0|dffs[1], lpm_counter:clk_cnt_rtl_0|dffs[2], lpm_counter:clk_cnt_rtl_0|dffs[3], lpm_counter:clk_cnt_rtl_0|dffs[4], lpm_counter:clk_cnt_rtl_0|dffs[5]                                                                                                                                                                                                                                          ;
+;  A  ; LC13       ; clk_detect_70m, lpm_counter:clk_div_cnt_rtl_0|dffs[0], cpu_clock                                                                                                                                                                                                                                                                                                                                                                                        ; ym_clock                                                                                                                                                                                                                                                                                                                                                                                                                                                  ;
+;  B  ; LC31       ; a2, iorq, wr                                                                                                                                                                                                                                                                                                                                                                                                                                            ; covox                                                                                                                                                                                                                                                                                                                                                                                                                                                     ;
+;  B  ; LC19       ; int                                                                                                                                                                                                                                                                                                                                                                                                                                                     ; lpm_counter:clk_cnt_rtl_0|dffs[0], lpm_counter:clk_cnt_rtl_0|dffs[1], lpm_counter:clk_cnt_rtl_0|dffs[2], lpm_counter:clk_cnt_rtl_0|dffs[3], lpm_counter:clk_cnt_rtl_0|dffs[4], lpm_counter:clk_cnt_rtl_0|dffs[5], clk_detect_70m                                                                                                                                                                                                                          ;
+;  B  ; LC17       ; cpu_clock                                                                                                                                                                                                                                                                                                                                                                                                                                               ; lpm_counter:clk_div_cnt_rtl_0|dffs[1], lpm_counter:clk_div_cnt_rtl_0|dffs[2], lpm_counter:clk_div_cnt_rtl_0|dffs[3], lpm_counter:clk_div_cnt_rtl_0|dffs[4], lpm_counter:clk_div_cnt_rtl_0|dffs[5], lpm_counter:clk_div_cnt_rtl_0|dffs[6], lpm_counter:clk_div_cnt_rtl_0|dffs[7], lpm_counter:clk_div_cnt_rtl_0|dffs[8], lpm_counter:clk_div_cnt_rtl_0|dffs[9], lpm_counter:clk_div_cnt_rtl_0|dffs[10], lpm_counter:clk_div_cnt_rtl_0|dffs[11], ym_clock~5 ;
+;  B  ; LC29       ; wr, a14, m1, a1, a15, iorq                                                                                                                                                                                                                                                                                                                                                                                                                              ; ioge_c                                                                                                                                                                                                                                                                                                                                                                                                                                                    ;
+;  B  ; LC32       ; d_3, a0, iorq, pre_tapeout, wr                                                                                                                                                                                                                                                                                                                                                                                                                          ; pre_tapeout, tapeout                                                                                                                                                                                                                                                                                                                                                                                                                                      ;
+;  B  ; LC20       ; cpu_clock, lpm_counter:clk_div_cnt_rtl_0|dffs[0]                                                                                                                                                                                                                                                                                                                                                                                                        ; lpm_counter:clk_div_cnt_rtl_0|dffs[2], lpm_counter:clk_div_cnt_rtl_0|dffs[3], lpm_counter:clk_div_cnt_rtl_0|dffs[4], lpm_counter:clk_div_cnt_rtl_0|dffs[5], lpm_counter:clk_div_cnt_rtl_0|dffs[6], lpm_counter:clk_div_cnt_rtl_0|dffs[7], lpm_counter:clk_div_cnt_rtl_0|dffs[8], lpm_counter:clk_div_cnt_rtl_0|dffs[9], lpm_counter:clk_div_cnt_rtl_0|dffs[10], lpm_counter:clk_div_cnt_rtl_0|dffs[11]                                                    ;
+;  B  ; LC26       ; clk_check7, lpm_counter:clk_cnt_rtl_0|dffs[0], lpm_counter:clk_div_cnt_rtl_0|dffs[11]                                                                                                                                                                                                                                                                                                                                                                   ; lpm_counter:clk_cnt_rtl_0|dffs[0], lpm_counter:clk_cnt_rtl_0|dffs[1], lpm_counter:clk_cnt_rtl_0|dffs[2], lpm_counter:clk_cnt_rtl_0|dffs[3], lpm_counter:clk_cnt_rtl_0|dffs[4], lpm_counter:clk_cnt_rtl_0|dffs[5]                                                                                                                                                                                                                                          ;
+;  B  ; LC25       ; clk_check7, lpm_counter:clk_cnt_rtl_0|dffs[1], lpm_counter:clk_cnt_rtl_0|dffs[0], lpm_counter:clk_div_cnt_rtl_0|dffs[11]                                                                                                                                                                                                                                                                                                                                ; lpm_counter:clk_cnt_rtl_0|dffs[1], lpm_counter:clk_cnt_rtl_0|dffs[2], lpm_counter:clk_cnt_rtl_0|dffs[3], lpm_counter:clk_cnt_rtl_0|dffs[4], lpm_counter:clk_cnt_rtl_0|dffs[5]                                                                                                                                                                                                                                                                             ;
+;  B  ; LC24       ; clk_check7, lpm_counter:clk_cnt_rtl_0|dffs[1], lpm_counter:clk_cnt_rtl_0|dffs[0], lpm_counter:clk_cnt_rtl_0|dffs[2], lpm_counter:clk_div_cnt_rtl_0|dffs[11]                                                                                                                                                                                                                                                                                             ; lpm_counter:clk_cnt_rtl_0|dffs[2], lpm_counter:clk_cnt_rtl_0|dffs[3], lpm_counter:clk_cnt_rtl_0|dffs[4], lpm_counter:clk_cnt_rtl_0|dffs[5]                                                                                                                                                                                                                                                                                                                ;
+;  B  ; LC18       ; clk_check7, lpm_counter:clk_cnt_rtl_0|dffs[0], lpm_counter:clk_cnt_rtl_0|dffs[1], lpm_counter:clk_cnt_rtl_0|dffs[2], lpm_counter:clk_cnt_rtl_0|dffs[3], lpm_counter:clk_div_cnt_rtl_0|dffs[11]                                                                                                                                                                                                                                                          ; lpm_counter:clk_cnt_rtl_0|dffs[3], lpm_counter:clk_cnt_rtl_0|dffs[4], lpm_counter:clk_cnt_rtl_0|dffs[5]                                                                                                                                                                                                                                                                                                                                                   ;
+;  B  ; LC23       ; clk_check7, lpm_counter:clk_cnt_rtl_0|dffs[2], lpm_counter:clk_cnt_rtl_0|dffs[0], lpm_counter:clk_cnt_rtl_0|dffs[1], lpm_counter:clk_cnt_rtl_0|dffs[3], lpm_counter:clk_cnt_rtl_0|dffs[4], lpm_counter:clk_div_cnt_rtl_0|dffs[11]                                                                                                                                                                                                                       ; lpm_counter:clk_cnt_rtl_0|dffs[4], lpm_counter:clk_cnt_rtl_0|dffs[5]                                                                                                                                                                                                                                                                                                                                                                                      ;
+;  B  ; LC27       ; clk_check7, lpm_counter:clk_cnt_rtl_0|dffs[3], lpm_counter:clk_cnt_rtl_0|dffs[2], lpm_counter:clk_cnt_rtl_0|dffs[0], lpm_counter:clk_cnt_rtl_0|dffs[1], lpm_counter:clk_cnt_rtl_0|dffs[4], lpm_counter:clk_cnt_rtl_0|dffs[5], lpm_counter:clk_div_cnt_rtl_0|dffs[11]                                                                                                                                                                                    ; lpm_counter:clk_cnt_rtl_0|dffs[5], clk_detect_70m                                                                                                                                                                                                                                                                                                                                                                                                         ;
+;  B  ; LC21       ; lpm_counter:clk_cnt_rtl_0|dffs[5], clk_check7                                                                                                                                                                                                                                                                                                                                                                                                           ; ym_clock~5                                                                                                                                                                                                                                                                                                                                                                                                                                                ;
+;  B  ; LC28       ;                                                                                                                                                                                                                                                                                                                                                                                                                                                         ; test                                                                                                                                                                                                                                                                                                                                                                                                                                                      ;
++-----+------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 
 
 +---------------------------------------------------------------+
@@ -387,8 +445,8 @@ Note: User assignments will override these defaults. The user specified values a
 Warning (20028): Parallel compilation is not licensed and has been disabled
 Info (119006): Selected device EPM3032ALC44-10 for design "EPM3032_YM2149x2"
 Info: Quartus II 64-Bit Fitter was successful. 0 errors, 1 warning
-    Info: Peak virtual memory: 4674 megabytes
-    Info: Processing ended: Mon Oct 03 04:42:05 2022
+    Info: Peak virtual memory: 4675 megabytes
+    Info: Processing ended: Wed Nov 09 03:19:40 2022
     Info: Elapsed time: 00:00:01
     Info: Total CPU time (on all processors): 00:00:01
 

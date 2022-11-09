@@ -65,7 +65,7 @@ GND+                         : 1         :        :                   :         
 GND+                         : 2         :        :                   :         :           :                
 VCCINT                       : 3         : power  :                   : 3.3V    :           :                
 reset                        : 4         : input  : 3.3-V LVTTL       :         :           : Y              
-d[4]                         : 5         : input  : 3.3-V LVTTL       :         :           : Y              
+d_4                          : 5         : input  : 3.3-V LVTTL       :         :           : Y              
 iorq                         : 6         : input  : 3.3-V LVTTL       :         :           : Y              
 TDI                          : 7         : input  : 3.3-V LVTTL       :         :           : N              
 m1                           : 8         : input  : 3.3-V LVTTL       :         :           : Y              
@@ -78,30 +78,30 @@ bdir                         : 14        : output : 3.3-V LVTTL       :         
 VCCIO                        : 15        : power  :                   : 3.3V    :           :                
 bc1                          : 16        : output : 3.3-V LVTTL       :         :           : Y              
 GND                          : 17        : gnd    :                   :         :           :                
-clk175                       : 18        : output : 3.3-V LVTTL       :         :           : Y              
-a8[0]                        : 19        : output : 3.3-V LVTTL       :         :           : Y              
-a8[1]                        : 20        : output : 3.3-V LVTTL       :         :           : Y              
+ym_clock                     : 18        : output : 3.3-V LVTTL       :         :           : Y              
+ym_0                         : 19        : output : 3.3-V LVTTL       :         :           : Y              
+ym_1                         : 20        : output : 3.3-V LVTTL       :         :           : Y              
 beeper                       : 21        : output : 3.3-V LVTTL       :         :           : Y              
 GND                          : 22        : gnd    :                   :         :           :                
 VCCINT                       : 23        : power  :                   : 3.3V    :           :                
 tapeout                      : 24        : output : 3.3-V LVTTL       :         :           : Y              
-RESERVED                     : 25        :        :                   :         :           :                
-d[7]                         : 26        : input  : 3.3-V LVTTL       :         :           : Y              
+covox                        : 25        : output : 3.3-V LVTTL       :         :           : Y              
+d7_alt                       : 26        : input  : 3.3-V LVTTL       :         :           : Y              
 ioge_c                       : 27        : output : 3.3-V LVTTL       :         :           : Y              
-d[1]                         : 28        : input  : 3.3-V LVTTL       :         :           : Y              
+test                         : 28        : output : 3.3-V LVTTL       :         :           : Y              
 a14                          : 29        : input  : 3.3-V LVTTL       :         :           : Y              
 GND                          : 30        : gnd    :                   :         :           :                
 a15                          : 31        : input  : 3.3-V LVTTL       :         :           : Y              
 TCK                          : 32        : input  : 3.3-V LVTTL       :         :           : N              
-d7_alt                       : 33        : input  : 3.3-V LVTTL       :         :           : Y              
-d[0]                         : 34        : input  : 3.3-V LVTTL       :         :           : Y              
+d_7                          : 33        : input  : 3.3-V LVTTL       :         :           : Y              
+d_0                          : 34        : input  : 3.3-V LVTTL       :         :           : Y              
 VCCIO                        : 35        : power  :                   : 3.3V    :           :                
 GND                          : 36        : gnd    :                   :         :           :                
-d[2]                         : 37        : input  : 3.3-V LVTTL       :         :           : Y              
+int                          : 37        : input  : 3.3-V LVTTL       :         :           : Y              
 TDO                          : 38        : output : 3.3-V LVTTL       :         :           : N              
-d[6]                         : 39        : input  : 3.3-V LVTTL       :         :           : Y              
-d[5]                         : 40        : input  : 3.3-V LVTTL       :         :           : Y              
-d[3]                         : 41        : input  : 3.3-V LVTTL       :         :           : Y              
+d_6                          : 39        : input  : 3.3-V LVTTL       :         :           : Y              
+d_5                          : 40        : input  : 3.3-V LVTTL       :         :           : Y              
+d_3                          : 41        : input  : 3.3-V LVTTL       :         :           : Y              
 GND                          : 42        : gnd    :                   :         :           :                
-clk350                       : 43        : input  : 3.3-V LVTTL       :         :           : Y              
-GND+                         : 44        :        :                   :         :           :                
+cpu_clock                    : 43        : input  : 3.3-V LVTTL       :         :           : Y              
+a2                           : 44        : input  : 3.3-V LVTTL       :         :           : Y              

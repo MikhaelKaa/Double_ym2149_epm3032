@@ -2,27 +2,103 @@
 TimeQuest Timing Analyzer Summary
 ------------------------------------------------------------
 
+Type  : Setup 'clk_check7'
+Slack : -9.200
+TNS   : -9.200
+
+Type  : Setup 'cpu_clock'
+Slack : -8.800
+TNS   : -105.500
+
+Type  : Setup 'lpm_counter:clk_div_cnt_rtl_0|dffs[11]'
+Slack : -8.700
+TNS   : -52.200
+
 Type  : Setup 'wr'
 Slack : -8.700
-TNS   : -34.800
+TNS   : -17.400
 
-Type  : Setup 'clk350'
-Slack : -8.700
-TNS   : -8.700
+Type  : Setup 'int'
+Slack : -1.600
+TNS   : -1.600
 
-Type  : Hold 'clk350'
-Slack : 5.600
-TNS   : 0.000
+Type  : Hold 'int'
+Slack : -2.000
+TNS   : -2.000
 
 Type  : Hold 'wr'
-Slack : 5.600
+Slack : -0.600
+TNS   : -1.100
+
+Type  : Hold 'lpm_counter:clk_div_cnt_rtl_0|dffs[11]'
+Slack : -0.500
+TNS   : -3.000
+
+Type  : Hold 'cpu_clock'
+Slack : 0.700
 TNS   : 0.000
+
+Type  : Hold 'clk_check7'
+Slack : 6.100
+TNS   : 0.000
+
+Type  : Minimum Pulse Width 'cpu_clock'
+Slack : -3.500
+TNS   : -84.000
+
+Type  : Minimum Pulse Width 'lpm_counter:clk_div_cnt_rtl_0|dffs[11]'
+Slack : -3.500
+TNS   : -42.000
 
 Type  : Minimum Pulse Width 'wr'
 Slack : -3.500
-TNS   : -28.000
+TNS   : -21.000
 
-Type  : Minimum Pulse Width 'clk350'
+Type  : Minimum Pulse Width 'a1'
+Slack : -3.500
+TNS   : -7.000
+
+Type  : Minimum Pulse Width 'a14'
+Slack : -3.500
+TNS   : -7.000
+
+Type  : Minimum Pulse Width 'a15'
+Slack : -3.500
+TNS   : -7.000
+
+Type  : Minimum Pulse Width 'clk_check7'
+Slack : -3.500
+TNS   : -7.000
+
+Type  : Minimum Pulse Width 'd_3'
+Slack : -3.500
+TNS   : -7.000
+
+Type  : Minimum Pulse Width 'd_4'
+Slack : -3.500
+TNS   : -7.000
+
+Type  : Minimum Pulse Width 'd_5'
+Slack : -3.500
+TNS   : -7.000
+
+Type  : Minimum Pulse Width 'd_6'
+Slack : -3.500
+TNS   : -7.000
+
+Type  : Minimum Pulse Width 'd_7'
+Slack : -3.500
+TNS   : -7.000
+
+Type  : Minimum Pulse Width 'int'
+Slack : -3.500
+TNS   : -7.000
+
+Type  : Minimum Pulse Width 'iorq'
+Slack : -3.500
+TNS   : -7.000
+
+Type  : Minimum Pulse Width 'm1'
 Slack : -3.500
 TNS   : -7.000
 
