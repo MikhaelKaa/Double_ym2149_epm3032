@@ -62,7 +62,7 @@ CHIP  "EPM3032_YM2149x2"  ASSIGNED TO AN: EPM3032ALC44-10
 Pin Name/Usage               : Location  : Dir.   : I/O Standard      : Voltage : I/O Bank  : User Assignment
 -------------------------------------------------------------------------------------------------------------
 GND+                         : 1         :        :                   :         :           :                
-GND+                         : 2         :        :                   :         :           :                
+dos                          : 2         : input  : 3.3-V LVTTL       :         :           : Y              
 VCCINT                       : 3         : power  :                   : 3.3V    :           :                
 reset                        : 4         : input  : 3.3-V LVTTL       :         :           : Y              
 d_4                          : 5         : input  : 3.3-V LVTTL       :         :           : Y              

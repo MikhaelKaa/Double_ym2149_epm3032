@@ -4,7 +4,7 @@ input cpu_clock, m1, iorq, wr, int,
 input reset,  
 input d_0, d_3, d_4, d_5, d_6, d_7,  
 input d7_alt,
-
+input dos,
 output covox, 
 
 output bc1, 
@@ -17,8 +17,11 @@ output ioge_c,
 output test
 );
 
+// Для тактирования звукового генератора 3.5.
+assign ym_clock = cpu_clock;
 
-// Для тактирования звукового генератора.
+/*
+// Для тактирования звукового генератора при изменении частоты 7\3.5.
 reg [11:0] clk_div_cnt;
 reg [5:0] clk_cnt;
 reg clk_check7;
@@ -44,7 +47,9 @@ always @(posedge clk_for_cnt) begin
 end	
 
 assign ym_clock = (clk_detect_70m)?(clk_div_cnt[0]):(cpu_clock);
+*/
 
+assign test = dos;
 
 // covox
 assign covox = ~(a2 | iorq | wr);
@@ -55,7 +60,7 @@ assign bc1  = ~(ssg | (~(a14 & m1)));
 assign bdir = ~(ssg | wr);
 
 // IOGE
-assign ioge_c = ~(ssg | (~(a14 & m1) | wr));
+assign ioge_c = ~(ssg | (~(a14 & m1) | wr | dos));
 
 // Turbo Sound
 reg  YM_select;
@@ -81,6 +86,8 @@ always @(negedge wr) begin
 end
 assign beeper = pre_beeper;
 assign tapeout = pre_tapeout;
+//assign tapeout = dos;
+
 
 
 /*
