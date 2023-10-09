@@ -18,19 +18,19 @@ output test
 );
 
 // Для тактирования звукового генератора 3.5.
-assign ym_clock = cpu_clock;
+//assign ym_clock = cpu_clock;
 
-/*
+
 // Для тактирования звукового генератора при изменении частоты 7\3.5.
 reg [11:0] clk_div_cnt;
-reg [5:0] clk_cnt;
+reg [6:0] clk_cnt;
 reg clk_check7;
 reg clk_detect_70m;
 
-always @(posedge cpu_clock) begin
+always @(negedge cpu_clock) begin
 	clk_div_cnt <= clk_div_cnt + 1;
 end	
-wire clk_for_cnt = clk_div_cnt[11];
+wire clk_for_cnt = clk_div_cnt[10];
 
 always @(negedge int) begin
 	clk_check7 = ~clk_check7;
@@ -39,28 +39,28 @@ end
 always @(negedge clk_check7) begin
 	clk_detect_70m = clk7_flag;
 end
-wire clk7_flag =  clk_cnt[5];
+wire clk7_flag =  clk_cnt[6] & clk_cnt[2];
 
-always @(posedge clk_for_cnt) begin
+always @(negedge clk_for_cnt) begin
 	if(clk_check7)clk_cnt = clk_cnt + 1;
 	else clk_cnt = 0;
 end	
 
 assign ym_clock = (clk_detect_70m)?(clk_div_cnt[0]):(cpu_clock);
-*/
 
-assign test = dos;
+
+assign test = clk_detect_70m;
 
 // covox
-assign covox = ~(a2 | iorq | wr);
+assign covox = ~(a2 | iorq | wr | ~dos);
 
 // Дешифрация звукового генератора.
 wire   ssg 	= ~(a15 & (~(a1 | iorq)));
 assign bc1  = ~(ssg | (~(a14 & m1)));
 assign bdir = ~(ssg | wr);
 
-// IOGE
-assign ioge_c = ~(ssg | (~(a14 & m1) | wr | dos));
+// IORQGE
+assign ioge_c = bc1 | bdir;
 
 // Turbo Sound
 reg  YM_select;
