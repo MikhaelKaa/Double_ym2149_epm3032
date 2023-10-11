@@ -1,3 +1,4 @@
+`timescale 1ns/1ps
 module EPM3032_YM2149x2 (
 input a0, a1, a2, a14, a15,
 input cpu_clock, m1, iorq, wr, int, 
@@ -22,10 +23,10 @@ output test
 
 
 // Для тактирования звукового генератора при изменении частоты 7\3.5.
-reg [11:0] clk_div_cnt;
-reg [6:0] clk_cnt;
-reg clk_check7;
-reg clk_detect_70m;
+reg [11:0] clk_div_cnt = 0;
+reg [6:0] clk_cnt = 0;
+reg clk_check7 = 0; 
+reg clk_detect_70m = 0;
 
 always @(negedge cpu_clock) begin
 	clk_div_cnt <= clk_div_cnt + 1;
@@ -63,7 +64,7 @@ assign bdir = ~(ssg | wr);
 assign ioge_c = bc1 | bdir;
 
 // Turbo Sound
-reg  YM_select;
+reg  YM_select = 0;
 wire TS_bit_sel = ~(d_3 & d_4 & d_5 & d_6 & d_7 & bdir & bc1); 
 //wire TS_bit_sel = ~(d_3 & d_4 & d_5 & d_6 & d7_alt & bdir & bc1); 
 always @(negedge TS_bit_sel or negedge reset) begin
@@ -78,8 +79,8 @@ assign ym_1 = ~ym_0;
 // Дешифрация бипера и tapeout. Аналогично пентагоновской схеме.
 
 // d7 on 26 pin
-reg pre_beeper;
-reg pre_tapeout;
+reg pre_beeper = 0;
+reg pre_tapeout = 0;
 always @(negedge wr) begin
 	if( ~( iorq | a0) ) pre_beeper  = d_4;
 	if( ~( iorq | a0) ) pre_tapeout = d_3;
