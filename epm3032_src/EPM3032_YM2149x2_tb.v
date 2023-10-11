@@ -1,6 +1,6 @@
 module EPM3032_YM2149x2_tb;
 
-localparam DURATION = 100000000;
+localparam DURATION = 200000000;
 localparam INT_LEN = 3000;
 localparam INT_PERIOD = 20000000;
 
@@ -17,7 +17,7 @@ reg wr = 1'b0;
 reg int = 1'b1;
 reg reset = 1'b0;
 reg d_0 = 1'b0, d_3 = 1'b0, d_4 = 1'b0, d_5 = 1'b0, d_6 = 1'b0, d_7 = 1'b0;
-reg d7_alt = 1'b0;
+//reg d7_alt = 1'b0;
 
 wire covox;
 wire bc1;
@@ -47,7 +47,7 @@ EPM3032_YM2149x2 EPM3032_YM2149x2_inst(
   .d_5(d_5),
   .d_6(d_6),
   .d_7(d_7),
-  .d7_alt(d7_alt),
+  //.d7_alt(d7_alt),
   .covox(),
   .bc1(bc1),
   .bdir(bdir),
