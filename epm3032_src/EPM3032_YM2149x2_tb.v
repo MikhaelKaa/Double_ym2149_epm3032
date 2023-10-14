@@ -1,23 +1,25 @@
 module EPM3032_YM2149x2_tb;
 
 localparam DURATION = 200000000;
-localparam INT_LEN = 3000;
+localparam INT_LEN = 9000;
 localparam INT_PERIOD = 20000000;
+localparam CPU_CLK_NORMAL = 1'b0;
+localparam CPU_CLK_TORBO = 1'b1;
+localparam CLK_CONST = 71;  //---> ~7MHz
 
-reg a0 = 1'b0;
-reg a1 = 1'b0;
-reg a2 = 1'b0;
-reg a14 = 1'b0;
-reg a15 = 1'b0;
+reg [15:0]adr = 16'hffff;
+reg [7:0]data = 16'hff;
 
 reg cpu_clock = 1'b0;
-reg m1 = 1'b0;
-reg iorq = 1'b0;
-reg wr = 1'b0;
+reg m1 = 1'b1;
+reg dos = 1'b1;
+reg iorq = 1'b1;
+reg wr = 1'b1;
 reg int = 1'b1;
-reg reset = 1'b0;
+reg reset = 1'b1;
 reg d_0 = 1'b0, d_3 = 1'b0, d_4 = 1'b0, d_5 = 1'b0, d_6 = 1'b0, d_7 = 1'b0;
-//reg d7_alt = 1'b0;
+//reg d7_alt = 1'b0;                        
+reg rd = 1'b1;
 
 wire covox;
 wire bc1;
@@ -28,25 +30,27 @@ wire ym_1;
 wire beeper;
 wire tapeout;
 wire ioge_c;
-wire test;
+//wire test;
 
 EPM3032_YM2149x2 EPM3032_YM2149x2_inst(
-  .a0(a0),
-  .a1(a1),
-  .a2(a2),
-  .a14(a14),
-  .a15(a15),
+  .a0(adr[0]),
+  .a1(adr[1]),
+  .a2(adr[2]),
+  .a14(adr[14]),
+  .a15(adr[15]),
 
   .cpu_clock(cpu_clock),
   .m1(m1),
+  .dos(dos),
   .wr(wr),
   .int(int),
+  .iorq(iorq),
   .reset(reset),
-  .d_0(d_0),
-  .d_4(d_4),
-  .d_5(d_5),
-  .d_6(d_6),
-  .d_7(d_7),
+  .d_0(data[0]),
+  .d_4(data[4]),
+  .d_5(data[5]),
+  .d_6(data[6]),
+  .d_7(data[7]),
   //.d7_alt(d7_alt),
   .covox(),
   .bc1(bc1),
@@ -57,7 +61,7 @@ EPM3032_YM2149x2 EPM3032_YM2149x2_inst(
   .beeper(beeper),
   .tapeout(tapeout),
   .ioge_c(ioge_c),
-  .test(test)
+  .rd(rd)
 );
 
 
@@ -72,7 +76,7 @@ reg clk70 = 1'b0;
 reg clk35 = 1'b0;
 
 always begin
-#(142/4) clk70 = ~clk70; // 142/4 ---> ~7MHz
+  #CLK_CONST clk70 = ~clk70;  
 end
 
 always@(negedge clk70) begin
@@ -89,11 +93,80 @@ end
 //
 initial
   begin
+    clk_mux = CPU_CLK_NORMAL;
     reset = 1;
     #10;
     reset = 0;
+    m1 = 1'b1;
+    dos = 1'b1;
+
+    // BFFD WR
+    #1000;
+    iorq = 0;
+    #142;
+    wr = 0; //<----
+    rd = 1; 
+    adr = 16'hBFFD;
+    #560;
+    wr = 1;
+    rd = 1; 
+    iorq = 1;
+    adr = 16'hFFFF;
+
+    // FFFD WD
+    #1000;
+    iorq = 0;
+    #142;
+    wr = 0; //<----
+    rd = 1; 
+    adr = 16'hFFFD;
+    #560;
+    wr = 1;
+    rd = 1; 
+    iorq = 1;
+    adr = 16'hFFFF;
+
+    // FFFD RD
+    #1000;
+    iorq = 0;
+    #142;
+    wr = 1; 
+    rd = 0; //<----
+    adr = 16'hFFFD;
+    #560;
+    wr = 1;
+    rd = 1; 
+    iorq = 1;
+    adr = 16'hFFFF;
+
+    // 7FFD RD
+    #1000;
+    iorq = 0;
+    #142;
+    wr = 1; 
+    rd = 0; //<----
+    adr = 16'h7FFD;
+    #560;
+    wr = 1;
+    rd = 1; 
+    iorq = 1;
+    adr = 16'hFFFF;
+
+        // 7FFD RD
+    #1000;
+    iorq = 0;
+    #142;
+    wr = 0; //<----
+    rd = 1; 
+    adr = 16'h7FFD;
+    #560;
+    wr = 1;
+    rd = 1; 
+    iorq = 1;
+    adr = 16'hFFFF;
+
     #(DURATION/2);
-    clk_mux = 1'b1;
+    clk_mux = CPU_CLK_TORBO;
 end
 
 // Заканчиваем симуляцию в момент времени DURATION.
