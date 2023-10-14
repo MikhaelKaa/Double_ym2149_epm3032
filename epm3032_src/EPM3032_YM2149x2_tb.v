@@ -102,12 +102,16 @@ initial
 
     // BFFD WR
     #1000;
+    wait(cpu_clock == 0);
     iorq = 0;
     #142;
     wr = 0; //<----
     rd = 1; 
     adr = 16'hBFFD;
     #560;
+    $display("TEST BFFD WR");
+    if(bc1 != 1'b0) $display("bc1 FAIL");
+    if(bdir != 1'b1) $display("bdir FAIL");
     wr = 1;
     rd = 1; 
     iorq = 1;
@@ -115,12 +119,16 @@ initial
 
     // FFFD WD
     #1000;
+    wait(cpu_clock == 0);
     iorq = 0;
     #142;
     wr = 0; //<----
     rd = 1; 
     adr = 16'hFFFD;
     #560;
+    $display("TEST BFFD WR");
+    if(bc1 != 1'b1) $display("bc1 FAIL");
+    if(bdir != 1'b1) $display("bdir FAIL");
     wr = 1;
     rd = 1; 
     iorq = 1;
@@ -128,12 +136,16 @@ initial
 
     // FFFD RD
     #1000;
+    wait(cpu_clock == 0);
     iorq = 0;
     #142;
     wr = 1; 
     rd = 0; //<----
     adr = 16'hFFFD;
     #560;
+    $display("TEST FFFD RD");
+    if(bc1 != 1'b1) $display("bc1 FAIL");
+    if(bdir != 1'b0) $display("bdir FAIL");
     wr = 1;
     rd = 1; 
     iorq = 1;
@@ -141,25 +153,34 @@ initial
 
     // 7FFD RD
     #1000;
+    wait(cpu_clock == 0);
     iorq = 0;
     #142;
     wr = 1; 
     rd = 0; //<----
     adr = 16'h7FFD;
     #560;
+    $display("TEST 7FFD RD");
+    if(bc1 != 1'b0) $display("bc1 FAIL");
+    if(bdir != 1'b0) $display("bdir FAIL");
     wr = 1;
     rd = 1; 
     iorq = 1;
     adr = 16'hFFFF;
 
-        // 7FFD RD
+        
+    // 7FFD WR
     #1000;
+    wait(cpu_clock == 0);
     iorq = 0;
     #142;
     wr = 0; //<----
     rd = 1; 
     adr = 16'h7FFD;
     #560;
+    $display("TEST 7FFD WD");
+    if(bc1 != 1'b0) $display("bc1 FAIL");
+    if(bdir != 1'b0) $display("bdir FAIL");
     wr = 1;
     rd = 1; 
     iorq = 1;
