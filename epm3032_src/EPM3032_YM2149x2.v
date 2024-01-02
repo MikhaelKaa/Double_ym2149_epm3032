@@ -35,6 +35,7 @@ assign bdir = ~(ssg | wr);*/
 
 // AY control
 wire [1:0]ay_a = {a15, a14};
+wire [2:0]ay_l = {a2, a1, a0};
 reg pre_bc1, pre_bdir;
 
 always @*
@@ -42,7 +43,7 @@ begin
 	pre_bc1 = 1'b0;
 	pre_bdir = 1'b0;
 
-	if(a1==1'b0 & a0==1'b1 & a2==1'b1 )
+	if(ay_l==1'b101 )
 	begin
 		if( ay_a==2'b11 )
 		begin
