@@ -48,6 +48,8 @@ Thumbs.db
 *.mov
 *.wmv
 
+/epm3032_src/output_files
+/epm3032_src/incremental_db
 /epm3032_src/db
 /epm3032_src/incremental_db
 /epm3032_src/output_files
