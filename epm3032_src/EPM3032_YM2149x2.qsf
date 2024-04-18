@@ -76,4 +76,4 @@ set_location_assignment PIN_19 -to ym_0
 set_location_assignment PIN_20 -to ym_1
 set_location_assignment PIN_28 -to test
 set_location_assignment PIN_2 -to dos
-set_location_assignment PIN_37 -to intr
+set_location_assignment PIN_37 -to rd

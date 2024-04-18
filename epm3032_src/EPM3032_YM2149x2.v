@@ -1,6 +1,6 @@
 module EPM3032_YM2149x2 (
 input a0, a1, a2, a14, a15,
-input cpu_clock, m1, iorq, wr, intr, 
+input cpu_clock, m1, iorq, wr, rd, 
 input reset,  
 input d_0, d_3, d_4, d_5, d_6, d_7,  
 input d7_alt,
@@ -31,9 +31,14 @@ assign ym_clock = ym_clk_div;
 assign covox = ~(a2 | iorq | wr);
 
 // Дешифрация звукового генератора.
-wire   ssg 	= ~(a15 & (~(a1 | iorq)));
-assign bc1  = ~(ssg | (~(a14 & m1)));
-assign bdir = ~(ssg | wr);
+//wire   ssg 	= ~(a15 & (~(a1 | iorq)));
+//assign bc1  = ~(ssg | (~(a14 & m1)));
+//assign bdir = ~(ssg | wr);
+
+// Вариант с дешифрацие с учетом rd. Возможно это первое место по нечитаемому написанию...
+wire ssg = iorq | a1 | ~a15 | ~m1;
+assign bc1  = (ssg)?(1'b0):( ( (((a14==1)&(wr==0)&(rd==1)) | ((a14==1))&(wr==1)&(rd==0)) )?(1'b1):(1'b0) );
+assign bdir = (ssg)?(1'b0):( ( (((a14==0)&(wr==0)&(rd==1)) | ((a14==1))&(wr==0)&(rd==1)) )?(1'b1):(1'b0) );
 
 // IOGE
 wire iorqge = (a15 == 1) & (a1 == 0) & (m1 == 1);
