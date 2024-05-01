@@ -41,6 +41,7 @@ assign bc1  = (ssg)?(1'b0):( ( (((a14==1)&(wr==0)&(rd==1)) | ((a14==1))&(wr==1)&
 assign bdir = (ssg)?(1'b0):( ( (((a14==0)&(wr==0)&(rd==1)) | ((a14==1))&(wr==0)&(rd==1)) )?(1'b1):(1'b0) );
 
 // IOGE
+//wire iorqge = (a15 == 1) & (a14 == 0) & (a1 == 0) & (m1 == 1);
 wire iorqge = (a15 == 1) & (a1 == 0) & (m1 == 1);
 assign ioge_c = iorqge;
 
@@ -52,7 +53,7 @@ always @(negedge TS_bit_sel or negedge reset) begin
 	if(~reset) 	YM_select = 1'b0;
 	else 			YM_select = d_0;
 end
-assign ym_0 = ~YM_select;
+assign ym_0 = YM_select;
 assign ym_1 = ~ym_0;
 
 
