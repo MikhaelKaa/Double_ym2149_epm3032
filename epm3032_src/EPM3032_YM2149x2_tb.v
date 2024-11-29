@@ -4,7 +4,6 @@ localparam DURATION =       200000000;
 localparam INT_LEN =        9000;
 localparam INT_PERIOD =     20000000;
 localparam CLK_CONST =      71;  //---> ~7MHz
-
 localparam CPU_CLK_NORMAL = 1'b0;
 localparam CPU_CLK_TURBO =  1'b1;
 
@@ -53,7 +52,7 @@ EPM3032_YM2149x2 EPM3032_YM2149x2_inst(
   .d_6(data[6]),
   .d_7(data[7]),
   //.d7_alt(d7_alt),
-  .covox(),
+  .covox(covox),
   .bc1(bc1),
   .bdir(bdir),
   .ym_clock(ym_0),
@@ -102,20 +101,38 @@ initial
     dos = 1'b1;
     iorq = 1'b1;
 
-    // beeper test
-    $display("beeper test");
+    // covox test
+    $display("covox on port 0x00fb");
     wr = 0; //<----
     rd = 1; 
-    adr = 16'h0001;
-    data[4] = 1;
-    #CLK_CONST;
+    adr = 16'h00fb;
+    data = 8'hff;
     iorq = 0;
-    #CLK_CONST;
+    #200
+    if(covox != 1'b1) $display("covox FAIL");
+    if(covox != 1'b0) $display("covox OK");
     wr = 1; //<----
     rd = 1; 
-    adr = 16'h0001;
+    adr = 16'h0000;
     iorq = 1;
-    data[4] = 0;
+    data = 8'h00;
+
+    // beeper test
+    $display("beeper & tapeout on port 0x00fe");
+    wr = 0; //<----
+    rd = 1; 
+    adr = 16'h00fe;
+    data = 8'hff;
+    #20
+    iorq = 0;
+    #200
+    if(beeper != 1'b1) $display("beeper FAIL");
+    if(beeper != 1'b0) $display("beeper OK");
+    wr = 1; //<----
+    rd = 1; 
+    adr = 16'h0000;
+    iorq = 1;
+    data = 8'h00;
 
 
     // BFFD WR
@@ -197,6 +214,40 @@ initial
     adr = 16'h7FFD;
     #560;
     $display("TEST 7FFD WD");
+    if(bc1 != 1'b0) $display("bc1 FAIL");
+    if(bdir != 1'b0) $display("bdir FAIL");
+    wr = 1;
+    rd = 1; 
+    iorq = 1;
+    adr = 16'hFFFF;
+
+    // BFFD RD
+    #1000;
+    wait(cpu_clock == 0);
+    iorq = 0;
+    #142;
+    wr = 1; 
+    rd = 0; //<----
+    adr = 16'hBFFD;
+    #560;
+    $display("TEST BFFD RD");
+    if(bc1 != 1'b0) $display("bc1 FAIL");
+    if(bdir != 1'b0) $display("bdir FAIL");
+    wr = 1;
+    rd = 1; 
+    iorq = 1;
+    adr = 16'hFFFF;
+
+    // BFFD WR
+    #1000;
+    wait(cpu_clock == 0);
+    iorq = 0;
+    #142;
+    wr = 0; //<----
+    rd = 1; 
+    adr = 16'hBFFD;
+    #560;
+    $display("TEST BFFD WD");
     if(bc1 != 1'b0) $display("bc1 FAIL");
     if(bdir != 1'b0) $display("bdir FAIL");
     wr = 1;
