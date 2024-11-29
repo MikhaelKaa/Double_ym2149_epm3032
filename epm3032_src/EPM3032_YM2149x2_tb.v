@@ -1,11 +1,12 @@
 module EPM3032_YM2149x2_tb;
 
-localparam DURATION = 200000000;
-localparam INT_LEN = 9000;
-localparam INT_PERIOD = 20000000;
+localparam DURATION =       200000000;
+localparam INT_LEN =        9000;
+localparam INT_PERIOD =     20000000;
+localparam CLK_CONST =      71;  //---> ~7MHz
+
 localparam CPU_CLK_NORMAL = 1'b0;
-localparam CPU_CLK_TORBO = 1'b1;
-localparam CLK_CONST = 71;  //---> ~7MHz
+localparam CPU_CLK_TURBO =  1'b1;
 
 reg [15:0]adr = 16'hffff;
 reg [7:0]data = 16'hff;
@@ -14,12 +15,12 @@ reg cpu_clock = 1'b0;
 reg m1 = 1'b1;
 reg dos = 1'b1;
 reg iorq = 1'b1;
+reg rd = 1'b1;
 reg wr = 1'b1;
 reg int = 1'b1;
 reg reset = 1'b1;
-reg d_0 = 1'b0, d_3 = 1'b0, d_4 = 1'b0, d_5 = 1'b0, d_6 = 1'b0, d_7 = 1'b0;
-//reg d7_alt = 1'b0;                        
-reg rd = 1'b1;
+
+//reg d_0 = 1'b0, d_3 = 1'b0, d_4 = 1'b0, d_5 = 1'b0, d_6 = 1'b0, d_7 = 1'b0;                       
 
 wire covox;
 wire bc1;
@@ -43,7 +44,7 @@ EPM3032_YM2149x2 EPM3032_YM2149x2_inst(
   .m1(m1),
   .dos(dos),
   .wr(wr),
-  .int(int),
+  //.int(int),
   .iorq(iorq),
   .reset(reset),
   .d_0(data[0]),
@@ -99,6 +100,23 @@ initial
     reset = 0;
     m1 = 1'b1;
     dos = 1'b1;
+    iorq = 1'b1;
+
+    // beeper test
+    $display("beeper test");
+    wr = 0; //<----
+    rd = 1; 
+    adr = 16'h0001;
+    data[4] = 1;
+    #CLK_CONST;
+    iorq = 0;
+    #CLK_CONST;
+    wr = 1; //<----
+    rd = 1; 
+    adr = 16'h0001;
+    iorq = 1;
+    data[4] = 0;
+
 
     // BFFD WR
     #1000;
@@ -187,7 +205,7 @@ initial
     adr = 16'hFFFF;
 
     #(DURATION/2);
-    clk_mux = CPU_CLK_TORBO;
+    clk_mux = CPU_CLK_TURBO;
 end
 
 // Заканчиваем симуляцию в момент времени DURATION.

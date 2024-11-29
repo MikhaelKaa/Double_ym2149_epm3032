@@ -63,8 +63,8 @@ assign ym_1 = ~ym_0;
 
 
 // Дешифрация бипера и tapeout. Аналогично пентагоновской схеме.
-reg pre_beeper;
-reg pre_tapeout;
+reg pre_beeper = 0;
+reg pre_tapeout = 0;
 wire port_fe = wr | iorq | a0;// | ~a1 | ~a2;
 always @(negedge port_fe) begin
 	pre_beeper  <= d_4;
