@@ -1,11 +1,11 @@
 module EPM3032_YM2149x2 (
-input a0, a1, a2, a14, a15,
+input a0, a1, a2, a3, a13, a14, a15,
 input cpu_clock, m1, iorq, wr, rd, 
 input reset,  
 input d_0, d_3, d_4, d_5, d_6, d_7,  
-input d7_alt,
 input dos,
 output covox, 
+input div2,
 
 output bc1, 
 output bdir, 
@@ -13,47 +13,32 @@ output ym_clock,
 output ym_0, ym_1,
 output beeper,
 output tapeout,
-output ioge_c,
-output test
+output ioge_c
 );
 
-assign test = 1'bz;//dos;
-
-// Для тактирования звукового генератора 1.75 MHz.
-// TODO: Сделать переключатель на случай тактирования 7 MHz.
+// Для тактирования звукового генератора 3.5 MHz - в ямахе использован встроенный делитель на два.
+// На плате версии 1.5 26 пин звукчипа посажен на землю намертво - поэтому пока так.
 reg ym_clk_div = 1'b0;
-always @(negedge cpu_clock) begin
-	ym_clk_div = ~ym_clk_div;
+reg iorqge_filter = 1'b0;
+
+always @(posedge cpu_clock) begin
+	ym_clk_div = ~ym_clk_div; 
+	iorqge_filter = ~iorqge;
 end
-assign ym_clock = ym_clk_div;
+assign ym_clock = div2?(cpu_clock):(ym_clk_div); 
 
-// covox
-assign covox = ~(a2 | iorq | wr);
-
-// Дешифрация звукового генератора.
-//wire   ssg 	= ~(a15 & (~(a1 | iorq)));
-//assign bc1  = ~(ssg | (~(a14 & m1)));
-//assign bdir = ~(ssg | wr);
-
-//// Вариант с дешифрацие с учетом rd. Возможно это первое место по нечитаемому написанию...
-//wire ssg = iorq | a1 | ~a15 | ~m1;
-//assign bc1  = (ssg)?(1'b0):( ( (((a14==1)&(wr==0)&(rd==1)) | ((a14==1))&(wr==1)&(rd==0)) )?(1'b1):(1'b0) );
-//assign bdir = (ssg)?(1'b0):( ( (((a14==0)&(wr==0)&(rd==1)) | ((a14==1))&(wr==0)&(rd==1)) )?(1'b1):(1'b0) );
-
-// Дешифрация звукового генератора.
-wire   ssg 	= ~(a15 & (~(a1 | iorq)));
-assign bc1  = ~(ssg | (~(a14 & m1)));
-assign bdir = ~(ssg | wr);
+// Вариант с дешифрации с учетом rd. + исправления от kotopes.
+wire ssg = iorq | ~a0 | a1 | ~a2 | ~a3 | ~a13 | ~a15 | ~m1;  // added full port decode (+ a0/a2/a3/a13)
+assign bdir = (ssg)?(1'b0):( ( (((a14==0)&(wr==0)&(rd==1)) | ((a14==1))&(wr==0)&(rd==1)) )?(1'b1):(1'b0) ); // #bffd
+assign bc1  = (ssg)?(1'b0):( ( (((a14==1)&(wr==0)&(rd==1)) | ((a14==1))&(wr==1)&(rd==0)) )?(1'b1):(1'b0) ); // #fffd_full with #dffd compat
 
 // IOGE
-//wire iorqge = (a15 == 1) & (a14 == 0) & (a1 == 0) & (m1 == 1);
-wire iorqge = (a15 == 1) & (a1 == 0) & (m1 == 1);
-assign ioge_c = iorqge;
+wire iorqge = ~a0 | a1 | ~a2 | ~a3 | ~a13 | ~a15 | ~m1 ;
+assign ioge_c = iorqge_filter;
 
 // Turbo Sound
 reg  YM_select;
 wire TS_bit_sel = ~(d_3 & d_4 & d_5 & d_6 & d_7 & bdir & bc1); 
-//wire TS_bit_sel = ~(d_3 & d_4 & d_5 & d_6 & d7_alt & bdir & bc1); 
 always @(negedge TS_bit_sel or negedge reset) begin
 	if(~reset) 	YM_select = 1'b0;
 	else 			YM_select = d_0;
@@ -61,11 +46,13 @@ end
 assign ym_0 = YM_select;
 assign ym_1 = ~ym_0;
 
+// covox 0xfb
+assign covox = ~(~a0 | ~a1 | a2 | ~a3 | iorq | wr);
 
-// Дешифрация бипера и tapeout. Аналогично пентагоновской схеме.
+// beeper и tapeout 0xfe.
 reg pre_beeper = 0;
 reg pre_tapeout = 0;
-wire port_fe = wr | iorq | a0;// | ~a1 | ~a2;
+wire port_fe = wr | iorq | a0 | ~a1 | ~a2 | ~a3;
 always @(negedge port_fe) begin
 	pre_beeper  <= d_4;
 	pre_tapeout <= d_3;
