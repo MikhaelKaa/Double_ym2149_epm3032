@@ -58,3 +58,6 @@ Thumbs.db
 *.bak
 *.vcd
 /epm3032_src/EPM3032_YM2149x2
+/sch_and_pcb/KiCAD/epm3032_ym2149x2-backups/*.zip
+/sch_and_pcb/KiCAD_DONOTUSE_VERSION/epm3032_ym2149x2-backups/*.zip
+/sch_and_pcb/KiCAD_DONOTUSE_VERSION/*.lck
