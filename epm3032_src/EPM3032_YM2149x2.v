@@ -21,7 +21,7 @@ output ioge_c
 reg ym_clk_div = 1'b0;
 reg iorqge_filter = 1'b0;
 
-always @(posedge cpu_clock) begin
+always @(negedge cpu_clock) begin
 	ym_clk_div = ~ym_clk_div; 
 	iorqge_filter = iorqge;
 end
