@@ -61,3 +61,5 @@ Thumbs.db
 /sch_and_pcb/KiCAD/epm3032_ym2149x2-backups/*.zip
 /sch_and_pcb/KiCAD_DONOTUSE_VERSION/epm3032_ym2149x2-backups/*.zip
 /sch_and_pcb/KiCAD_DONOTUSE_VERSION/*.lck
+/sch_and_pcb/KiCAD_DONOTUSE_VERSION/fp-info-cache
+/sch_and_pcb/KiCAD_DONOTUSE_VERSION/epm3032_ym2149x2.kicad_prl

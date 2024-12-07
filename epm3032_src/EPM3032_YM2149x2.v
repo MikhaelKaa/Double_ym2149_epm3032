@@ -23,18 +23,24 @@ reg iorqge_filter = 1'b0;
 
 always @(posedge cpu_clock) begin
 	ym_clk_div = ~ym_clk_div; 
-	iorqge_filter = ~iorqge;
+	iorqge_filter = iorqge;
 end
 assign ym_clock = div2?(cpu_clock):(ym_clk_div); 
 
-// Вариант с дешифрации с учетом rd. + исправления от kotopes.
-wire ssg = iorq | ~a0 | a1 | ~a2 | ~a3 | ~a13 | ~a15 | ~m1;  // added full port decode (+ a0/a2/a3/a13)
-assign bdir = (ssg)?(1'b0):( ( (((a14==0)&(wr==0)&(rd==1)) | ((a14==1))&(wr==0)&(rd==1)) )?(1'b1):(1'b0) ); // #bffd
-assign bc1  = (ssg)?(1'b0):( ( (((a14==1)&(wr==0)&(rd==1)) | ((a14==1))&(wr==1)&(rd==0)) )?(1'b1):(1'b0) ); // #fffd_full with #dffd compat
+// Вариант дешифрации.
+wire port_          = ~(~a0 | a1 | ~a2 | ~a3               | ~a15);
+wire port_bffd      = ~(~a0 | a1 | ~a2 | ~a3        |  a14 | ~a15);
+wire port_fffd      = ~(~a0 | a1 | ~a2 | ~a3        | ~a14 | ~a15);
+wire port_fffd_full = ~(~a0 | a1 | ~a2 | ~a3 | ~a13 | ~a14 | ~a15);
+
+assign bdir = (port_ | ~iorq)?( ( (((a14==0)&(wr==0)&(rd==1)) | ((a14==1))&(wr==0)&(rd==1)) )?(1'b1):(1'b0) ):(1'b0); // #bffd
+assign bc1  = (port_ | ~iorq)?( ( (((a14==1)&(wr==0)&(rd==1)) | ((a14==1))&(wr==1)&(rd==0)) )?(1'b1):(1'b0) ):(1'b0); // #fffd_full with #dffd compat
 
 // IOGE
-wire iorqge = ~a0 | a1 | ~a2 | ~a3 | ~a13 | ~a15 | ~m1 ;
+wire iorqge = (m1 && (port_fffd_full || port_bffd))? 1'b1 : 1'b0;
+//assign ioge_c = iorqge;
 assign ioge_c = iorqge_filter;
+
 
 // Turbo Sound
 reg  YM_select;
