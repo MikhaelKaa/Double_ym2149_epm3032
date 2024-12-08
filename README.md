@@ -13,18 +13,18 @@ https://github.com/ponchick/TS_Ext_EPM3032
 
 
 ### Версия прошивки для платы 1.5 без каких либо доработок:
-/docs/EPM3032_ponchick_ver1.5.pof
-![Image](./docs/by_ponchick_ver1.5.png)
+/docs/1.5fix/EPM3032_ponchick_ver1.5.pof
+![Image](./docs/1.5/by_ponchick_ver1.5.png)
 
 
 ### Версия прошивки для 1.5 с доработками:
-/docs/EPM3032_ponchick_ver1.5fix.pof
-![Image](./docs/1.5fix_.png)
+/docs/1.5fix/EPM3032_ponchick_ver1.5fix.pof
+![Image](./docs/1.5fix/1.5fix_.png)
 
 ## Макет с ковоксом:
 
-![Image](./docs/proto_top.png)
-![Image](./docs/proto_bot.png)
+![Image](./docs/prototype/proto_top.png)
+![Image](./docs/prototype/proto_bot.png)
 
 В планах: добавить цифровую регулировку громкости.
 

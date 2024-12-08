@@ -71,7 +71,6 @@ set_location_assignment PIN_43 -to cpu_clock
 set_location_assignment PIN_18 -to ym_clock
 set_location_assignment PIN_19 -to ym_0
 set_location_assignment PIN_20 -to ym_1
-set_location_assignment PIN_2 -to dos
 set_location_assignment PIN_37 -to rd
 set_location_assignment PIN_26 -to a3
 set_location_assignment PIN_28 -to a13
@@ -81,3 +80,4 @@ set_global_assignment -name OPTIMIZE_HOLD_TIMING OFF
 set_global_assignment -name OPTIMIZE_MULTI_CORNER_TIMING OFF
 set_global_assignment -name FITTER_EFFORT "STANDARD FIT"
 set_location_assignment PIN_1 -to div2
+set_location_assignment PIN_2 -to interrupt
