@@ -39,7 +39,9 @@ always @(posedge clk_for_cnt) begin
 	if(clk_check7)clk_cnt = clk_cnt + 1'b1;
 	else clk_cnt = 0;
 end	
-assign ym_clock = (clk_detect_70m)?(clk_div_cnt[0]):(cpu_clock);
+
+assign ym_clock = (div2)?(clk_div_cnt[0]):(cpu_clock);
+//assign ym_clock = (clk_detect_70m)?(clk_div_cnt[0]):(cpu_clock);
 
 
 // Вариант дешифрации.
@@ -57,7 +59,7 @@ always @(negedge cpu_clock) begin
 	iorqge_filter = iorqge;
 end
 
-wire iorqge = (m1 && (port_fffd_full || port_bffd))? 1'b1 : 1'b0;
+wire iorqge = (m1 && (port_fffd || port_bffd))? 1'b1 : 1'b0;
 //assign ioge_c = iorqge;
 assign ioge_c = iorqge_filter;
 
